@@ -30,11 +30,22 @@ Feel free to add your own TODO items as you work through the project.
 * :x: Code a way for the user to quit the application
 * :x: (OPTIONAL) Make some basic items easily configurable (screen width, screen height, tileset)
 * :x: Decide on a movement scheme (e.g. orthogonal, orthogonal+diagonal, something unique)
-* :x: Implement moving the player character across the screen
+* :x: Code moving the player character across the screen
 
 ## Part 2 - The generic Entity, the render functions and the map ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-2/))
 
-* :x: Implement a more generic "Entity" that can represent the player as well as any NPC units
+* :x: Code a more generic "Entity" that can represent the player as well as any NPC units
 * :x: Make it possible to colour entities (or visually distinguish them from each other in some other way)
-* :x: Implement a tile-based map
-* :x: Implement collision detection to prevent entities moving through impassible tiles
+* :x: Code a tile-based map
+* :x: Code collision detection to prevent entities moving through impassible tiles
+
+## TODO: Parts 3 - 8 
+
+## Part 9 - Ranged Scrolls and Targeting ([link](https://rogueliketutorials.com/tutorials/tcod/v2/part-9/))
+
+* :x: Code a Scroll of Lightning which damages a random nearby enemy
+* :x: Code a look mode that allows the player to look around the map with the keyboard
+* :x: Code a target mode based on the look mode for selecting the target of a scroll
+* :x: Code a confusion scroll that can be aimed at a specific entity
+* :x: Code a fireball scroll that can be aimed at an enemy or a tile and damages everything in a radius
+* :x: (OPTIONAL) Code random spawning of these new items in the level generation code
