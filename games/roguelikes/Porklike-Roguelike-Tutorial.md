@@ -39,6 +39,9 @@ The following icons can be used to indicate progress as you work through your co
 * :x: Code moving the player character on screen
 * :x: Code recoloring of sprites from code
 
-## Somewhere in the future...
+## #3 - Animation ([link](https://youtu.be/CO1qTJMH8mU))
 
-* :x: Code animation of the character or other animated tiles
+* :x: Code simple looping animation of the player character (walk / idle cycle)
+* :x: (OPTIONAL) Make it easy to control animation speed (e.g. play at half / quarter speed)
+* :x: Code a movement animation to smoothly slide the character between tiles when moving
+* :x: (OPTIONAL) A separate game state that doesn't accept input during movement animations
