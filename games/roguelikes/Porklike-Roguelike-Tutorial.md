@@ -21,7 +21,7 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Choose and setup your sound tools
 * :x: (OPTIONAL) Choose and setup your tile map editing tools
 * :x: (OPTIONAL) Choose and setup your art tools (if you want to use a tile-based style)
-* :x: (OPTIONAL) Choose an existing tileset to use (if you want to focus on the code / game design)
+* :x: (OPTIONAL) Choose an existing tile set to use (if you want to focus on the code / game design)
 * :x: (OPTIONAL) Consider joining something like the [7DRL Challenge](https://itch.io/jam/7drl-challenge-2022) for extra motivation
 
 ## #2 - Basic Movement ([link](https://youtu.be/SoFOva5FUnI))
@@ -45,3 +45,10 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Make it easy to control animation speed (e.g. play at half / quarter speed)
 * :x: Code a movement animation to smoothly slide the character between tiles when moving
 * :x: (OPTIONAL) A separate game state that doesn't accept input during movement animations
+
+## #4 - Token Optimization ([link](https://youtu.be/1ZUhxXQiDCA))
+
+* :x: (OPTIONAL) (PICO-8) Learn how to refactor code to reduce repetition and minimize token usage
+* :x: (OPTIONAL) Refactor code to express a movement direction as an index into two arrays of deltaX and deltaY
+  * This is a surprisingly useful idea!
+* :x: (OPTIONAL) Refactor animation system to use a floating point counter with the formula `value = finalValue * (1.0 - counter)`
