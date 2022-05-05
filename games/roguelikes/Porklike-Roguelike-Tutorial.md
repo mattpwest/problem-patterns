@@ -52,3 +52,12 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Refactor code to express a movement direction as an index into two arrays of deltaX and deltaY
   * This is a surprisingly useful idea!
 * :x: (OPTIONAL) Refactor animation system to use a floating point counter with the formula `value = finalValue * (1.0 - counter)`
+
+## #5 - Wall Collision ([link](https://youtu.be/PnE5S4DoNEg))
+
+* :x: Code flipping the character sprite horizontally to indicate moving left or right
+* :x: Code character collision with wall tiles to prevent walking through walls
+* :x: Code a bump animation when the player tries to walk into a wall
+  * Move halfway into the tile and then slide back to their original tile
+  * While animation progress 0.0 - 0.5 move to the target position
+  * WHile animation progress 0.5 - 1.0 move back to the original position
