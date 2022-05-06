@@ -30,7 +30,7 @@ The following icons can be used to indicate progress as you work through your co
 * :x: Draw a wall tile
 * :x: Draw a ground tile
 * :x: Draw stairs tiles
-* :x: Design a simple map for initial testing
+* :x: Design a simple one room map for initial testing using all of the above
 * :x: Code loading the designed map (or define it in code for now)
 * :x: Code initial main game state (figure out how to switch states later when you have more)
 * :x: Code drawing the map on screen
@@ -61,3 +61,23 @@ The following icons can be used to indicate progress as you work through your co
   * Move halfway into the tile and then slide back to their original tile
   * While animation progress 0.0 - 0.5 move to the target position
   * WHile animation progress 0.5 - 1.0 move back to the original position
+
+## #6 - Object Interaction ([link](https://youtu.be/y3uNmCL414M))
+
+* :x: Design a test level with player spawn, stairs up and stairs down
+* :x: Draw a door tile
+* :x: Draw at least 2 variants of a treasure chest tile with open and closed state
+* :x: Draw at least 2 variants of smashable pots
+* :x: Draw a stone tablet
+* :x: Create tiles for all of the above, they should all block movement
+* :x: Incorporate all of these into your test level design
+* :x: Refactor code so the bump animation plays for any tile that blocks movement (not just walls anymore)
+* :x: Code effects that occur when bumping into the various interactive tiles:
+  * :x: Vase being destroyed (replace with floor tile)
+  * :x: Door opening (simply replace with floor in this game)
+  * :x: Chest opening (replace with open chest tile)
+* :x: Test out your test level
+* :x: (OPTIONAL) Refactor code to queue up a single key press during animation state
+  * So that the game reacts to a key that was pressed during animation
+  * In the main state only accept new input if the button buffer is empty
+  * Controls should feel much more responsive after this change
