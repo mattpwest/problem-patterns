@@ -81,3 +81,15 @@ The following icons can be used to indicate progress as you work through your co
   * So that the game reacts to a key that was pressed during animation
   * In the main state only accept new input if the button buffer is empty
   * Controls should feel much more responsive after this change
+
+## #7 - Text Boxes ([link](https://youtu.be/6G2StWNTFlo))
+
+* :x: Create: Walking sound
+* :x: Create: Door opening sound
+* :x: Create: Chest opening sound
+* :x: Create: Bad thing happened sound
+* :x: Create: Breaking vase sound
+* :x: Code to play all of these when appropriate
+  * Bad thing happened will be used in a later step of the tutorial
+* :x: Code to popup a dialog box containing some text
+  * Accepting an array of lines of text gives good flexibility for laying out messages
