@@ -93,3 +93,27 @@ The following icons can be used to indicate progress as you work through your co
   * Bad thing happened will be used in a later step of the tutorial
 * :x: Code to popup a dialog box containing some text
   * Accepting an array of lines of text gives good flexibility for laying out messages
+
+## #8 - Message System ([link](https://youtu.be/XuT3nwDuRiw))
+
+* :x: Code popping up a text box when interacting with a stone tablet
+* :x: Code a variant of the text box that shows a one-line message which disappears automatically after a configurable time
+  * This variant should set its width automatically based on the text to show
+  * It should also be automatically centered on the screen
+* :x: (OPTIONAL) Code a snap-shut animation when a window closes
+  * That is reduce text box height by percentage decrements until <= 0
+* :x: (OPTIONAL) Ensure the text boxes have some padding to improve readability
+* :x: Code a variant of the text box that must be dismissed manually
+  * This variant should have fixed width, but display a variable number of lines
+  * It should be automatically centered on the screen
+  * It should show an 'x' icon to hint to the player that it needs to be dismissed
+* :x: Code a way to print text with an outline
+  * A simple way to do this is print the outline 1 pixel in each of the 8 directions
+  * Then printing the text at the target location
+  * This is useful for the dismissal icon above to ensure contrast for readability
+* :x: Code a bounce animation for the dismissal icon
+  * A simple `+ sin(time())` on the y coordinate tends to work well
+* :x: Hide the button during the window closing animation
+* :x: (OPTIONAL) Code a way to have different messages for different stone tablets
+  * (OPTION 1): Based on coordinates
+  * (OPTION 2): Based on tile data
