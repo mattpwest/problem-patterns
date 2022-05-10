@@ -117,3 +117,12 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Code a way to have different messages for different stone tablets
   * (OPTION 1): Based on coordinates
   * (OPTION 2): Based on tile data
+
+## #9 - Monsters ([link](https://youtu.be/rjWxDQcYUwo))
+
+* :books: Lots of theory discussion in this video - hence not many TODO items...
+* :x: (OPTIONAL) If necessary, refactor the code to represent the player reusable to also represent monsters
+  * I.e. if the player is an object, make it possible to represent monsters with the same type of object
+* :x: Draw a slime monster (with 4 frame animation)
+* :x: Code spawning the slime monster on the test map
+* :x: Code to draw and animate all spawned monsters
