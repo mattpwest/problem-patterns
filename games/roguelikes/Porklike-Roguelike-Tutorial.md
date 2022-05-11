@@ -126,3 +126,21 @@ The following icons can be used to indicate progress as you work through your co
 * :x: Draw a slime monster (with 4 frame animation)
 * :x: Code spawning the slime monster on the test map
 * :x: Code to draw and animate all spawned monsters
+
+## #10 - Mob System ([link](https://youtu.be/CSIHQElMdF0))
+
+* :x: Code a data structure for storing animation frames and switch monster spawning to use it
+  * Just storing the first frame may be viable if all animations have the same number of frames
+  * If not, store a list of each frame in the animation
+* :x: If still necessary, refactor the code to represent, draw and animate the player so that it can also be used for monsters (or mobs)
+  * Definition of mob is: mobiles. So players and monsters. Hence, mob system.
+* :x: Code a way to get the mob at a certain map position (if any)
+* :x: Code a way to check if a tile is walkable
+  * Include a map bounds check here to prevent the player moving outside the map if we're missing some walls
+  * Include an optional mode in this for also checking if there is a mob on the tile and blocking movement if there is
+
+## #11 - Combat ([link](https://youtu.be/FvSLsmTCIO4))
+
+TODO, but probably includes:
+* :x: Code attacking the mob in a tile if the payer moves into a tile containing a mob
+  * For now simply destroy the mob outright
