@@ -141,6 +141,24 @@ The following icons can be used to indicate progress as you work through your co
 
 ## #11 - Combat ([link](https://youtu.be/FvSLsmTCIO4))
 
-TODO, but probably includes:
-* :x: Code attacking the mob in a tile if the payer moves into a tile containing a mob
-  * For now simply destroy the mob outright
+* :books: This video features an interesting theoretical discussion about RPG combat design
+  * This tutorial game will have an unconventional style of combat
+  * Units will do a reliable amount of damage instead of a random value
+  * To encourage planning rather than gambling
+* :x: Code to add mob data for starting hit points
+* :x: Code to add mob data for attack power
+* :x: Code to initialize mobs with hit points and attack power
+* :x: Code for attacking the mob in a tile if the mob moves into a tile containing another mob
+  * Simply subtract attack power from hit points
+  * If hit points are 0 or less, the mob should be destroyed
+  * For now give the slimes 2 HP for testing
+* :x: Code to animate a mob with a flash if it takes damage
+  * Simply coloring the mob white for a few frames should suffice
+* :x: Create: Hitting enemy mob sound
+* :x: Create: Getting hit sound
+* :x: Code to play the hitting enemy mob sound when the player attacks a mob
+* :x: Code to show a damage floater when a mob takes damage
+  * That is: a particle effect, showing the amount of damage...
+  * ... which briefly floats above the damaged unit's head
+  * Tween function: `currentY = (targetY - currentY) / 10`
+  * Use a black outline print for legibility
