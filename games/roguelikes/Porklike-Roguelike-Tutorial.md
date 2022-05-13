@@ -162,3 +162,18 @@ The following icons can be used to indicate progress as you work through your co
   * ... which briefly floats above the damaged unit's head
   * Tween function: `currentY = (targetY - currentY) / 10`
   * Use a black outline print for legibility
+
+## #12 - Simple Pathfinding ([link](https://youtu.be/qLIPY0ro5UY))
+
+* :x: (OPTIONAL) Code a way to spawn monsters from map data
+  * More useful if you want to use some hand-designed content in addition to procedural
+* :x: Code to calculate the distance between two points on the map
+  * `dx=tx-x; dy=ty-y; dist=sqrt(dx * dx + dy * dy);`
+  * As an optimization you can often skip the `sqrt`
+* :x: Code turn structure and "stupid" movement AI
+  * After the player has moved, iterate through all mobs other than the player
+  * Search through each of the 4 (or 8) adjacent squares for an open one with the lowest distance to the target (the player)
+  * Move the unit to this tile
+  * If no tile was found skip the mob
+  * If the target (player) is in the tile, attack it
+* :x: (OPTIONAL) Code a system for showing AI debug information on screen
