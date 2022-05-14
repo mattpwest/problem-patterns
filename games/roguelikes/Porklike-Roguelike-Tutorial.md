@@ -177,3 +177,15 @@ The following icons can be used to indicate progress as you work through your co
   * If no tile was found skip the mob
   * If the target (player) is in the tile, attack it
 * :x: (OPTIONAL) Code a system for showing AI debug information on screen
+
+## #12 - Death ([link](https://youtu.be/1jQJQ_l4geM))
+
+* :x: Code a game over state
+* :x: Code a check for player death which switches to the game over state
+* :x: Code to restart the game on a button press in the game over mode
+* :x: (OPTIONAL) Try to find and fix any issues from restarting the game
+* :x: Code to continue displaying and animating dying mobs
+  * For a short time before they are finally removed
+* :x: (OPTIONAL) Code animation to make the dying mob flash
+* :x: (OPTIONAL) Refactor drawing to draw player mob last
+  * I.e. ensure the player is always on top
