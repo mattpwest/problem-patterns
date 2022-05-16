@@ -178,7 +178,7 @@ The following icons can be used to indicate progress as you work through your co
   * If the target (player) is in the tile, attack it
 * :x: (OPTIONAL) Code a system for showing AI debug information on screen
 
-## #12 - Death ([link](https://youtu.be/1jQJQ_l4geM))
+## #13 - Death ([link](https://youtu.be/1jQJQ_l4geM))
 
 * :x: Code a game over state
 * :x: Code a check for player death which switches to the game over state
@@ -189,3 +189,19 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Code animation to make the dying mob flash
 * :x: (OPTIONAL) Refactor drawing to draw player mob last
   * I.e. ensure the player is always on top
+
+## #14 - HP Display ([link](https://youtu.be/LIlFLoU9S1w))
+
+* :x: Code for fading the screen in / out
+* :x: Code to fade in the screen at the start of the game
+* :x: Code to fade out the screen if the player dies, before going to the game over screen
+* :x: (OPTIONAL) Freeze the game for a couple of seconds on death before or during the fade out
+  * To give the player a moment to see what killed them
+* :x: Code to fade out the game over screen when the player presses a key
+  * Effectively resulting a cross-fade with the game start
+* :x: Code a small hit points display dialog to show the player health
+  * A box with `HP: current / max` essentially
+  * Position the box dynamically to not be "in the way", i.e. bottom of the screen when the player is a the top, top when the player is at the bottom...
+* :x: (OPTIONAL) Code to tween the dialog position smoothly when it moves
+* :x: (OPTIONAL) Code to remove the HP dialog when the player dies
+  * I.e. ensure it is no longer shown on the game over screen
