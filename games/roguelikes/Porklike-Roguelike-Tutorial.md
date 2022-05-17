@@ -205,3 +205,22 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Code to tween the dialog position smoothly when it moves
 * :x: (OPTIONAL) Code to remove the HP dialog when the player dies
   * I.e. ensure it is no longer shown on the game over screen
+
+## #15 - AI ([link](https://youtu.be/eTdD1vRC9OY))
+
+* :x: Code for checking line of sight
+  * Non-walkable tiles can be considered to block line of sight
+  * (OPTIONAL) You can use the naive algorithm from [Line Drawing Algorithm](https://en.wikipedia.org/wiki/Line_drawing_algorithm) if your map size is small enough
+  * (OPTIONAL) Considering distance 1 as visible is a good tweak to handle rare edge cases where a unit is standing on a blocking tile
+* :x: Code a simple state machine for AI controlled mobs
+  * WAIT:
+    * Stay in place
+    * If you see the player switch to ATTACK
+  * ATTACK:
+    * If you see the player update your target to their position
+    * Move to the target
+    * Attack if possible
+    * If target reached switch back to WAIT
+* :x: Reuse the floater code from part 11 to:
+  * :x: show an exclamation point when a mob sees the player
+  * :x: show a question mark when the mob loses track of the player
