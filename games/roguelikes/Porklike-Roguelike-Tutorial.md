@@ -209,6 +209,7 @@ The following icons can be used to indicate progress as you work through your co
 ## #15 - AI ([link](https://youtu.be/eTdD1vRC9OY))
 
 * :x: Code for checking line of sight
+  * Can one tile position see another tile position?
   * Non-walkable tiles can be considered to block line of sight
   * (OPTIONAL) You can use the naive algorithm from [Line Drawing Algorithm](https://en.wikipedia.org/wiki/Line_drawing_algorithm) if your map size is small enough
   * (OPTIONAL) Considering distance 1 as visible is a good tweak to handle rare edge cases where a unit is standing on a blocking tile
@@ -224,3 +225,16 @@ The following icons can be used to indicate progress as you work through your co
 * :x: Reuse the floater code from part 11 to:
   * :x: show an exclamation point when a mob sees the player
   * :x: show a question mark when the mob loses track of the player
+
+## #16 - Fog of War ([link](https://youtu.be/QF5jZWAhl1s))
+
+* :x: (OPTIONAL) This is a good point to test what you have so far and squash any bugs you find
+* :x: Reuse the line of sight function from part 15 to implement simple fog of war:
+  * All tiles on the map start invisible
+  * On the player turn loop through all tiles on the map:
+    * Check line of sight from the player to that tile
+    * If a tile is visible, remove the fog
+  * Once uncovered a tile will remain visible forever
+* :x: (OPTIONAL) Research and implement more sophisticated line of sight and fog of war algorithms
+  * If you want to have more realistic line of sight
+  * Or if you want to have larger maps than 15x15, because the approach described above is very simple and brute force and likely won't scale to larger map sizes
