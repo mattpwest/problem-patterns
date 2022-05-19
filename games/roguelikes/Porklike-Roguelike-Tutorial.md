@@ -238,3 +238,17 @@ The following icons can be used to indicate progress as you work through your co
 * :x: (OPTIONAL) Research and implement more sophisticated line of sight and fog of war algorithms
   * If you want to have more realistic line of sight
   * Or if you want to have larger maps than 15x15, because the approach described above is very simple and brute force and likely won't scale to larger map sizes
+
+## #17 - Fog Polish ([link](https://youtu.be/0cTutS4CC5c))
+
+* :x: Improve line of sight check to distinguish between walkable and being able to see past or through something
+  * :x: Chests should not block LOS
+  * :x: Pots should not block LOS
+* :x: Improve line of sight down long hallways where you see the floor tiles, but not the walls
+  * When removing fog from a tile
+  * If the tile is walkable
+  * Also uncover adjacent tiles that would block line of sight (typically walls)
+* :x: Limit the range of line of sight per mob
+  * So the player doesn't uncover the entire map so quickly
+  * So that mobs don't aggro from so far away
+  * In the tutorial the value used was 4 tiles
