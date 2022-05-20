@@ -252,3 +252,7 @@ The following icons can be used to indicate progress as you work through your co
   * So the player doesn't uncover the entire map so quickly
   * So that mobs don't aggro from so far away
   * In the tutorial the value used was 4 tiles
+
+## #18 - Token Tweaks ([link](https://youtu.be/VRxd1oDsvx4))
+
+* :x: (OPTIONAL) If you are using PICO-8, spend some time [optimizing your token count](https://www.lexaloffle.com/bbs/?tid=45114)
