@@ -256,3 +256,12 @@ The following icons can be used to indicate progress as you work through your co
 ## #18 - Token Tweaks ([link](https://youtu.be/VRxd1oDsvx4))
 
 * :x: (OPTIONAL) If you are using PICO-8, spend some time [optimizing your token count](https://www.lexaloffle.com/bbs/?tid=45114)
+
+## #19 - Pathfinding ([link](https://youtu.be/zA1uMY5f4Js))
+
+* :x: Code a better path finding algorithm
+  * The tutorial uses Dijkstra Mapping and provides a good example of implementing it
+  * Here are some additional resources:
+    * [Flow Field Pathfinding for Tower Defense](https://www.redblobgames.com/pathfinding/tower-defense/)
+    * [The Incredible Power of Dijkstra Maps](http://www.roguebasin.com/index.php/The_Incredible_Power_of_Dijkstra_Maps)
+    * [Dijkstra Maps Visualized](http://www.roguebasin.com/index.php/Dijkstra_Maps_Visualized)
