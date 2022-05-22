@@ -265,3 +265,8 @@ The following icons can be used to indicate progress as you work through your co
     * [Flow Field Pathfinding for Tower Defense](https://www.redblobgames.com/pathfinding/tower-defense/)
     * [The Incredible Power of Dijkstra Maps](http://www.roguebasin.com/index.php/The_Incredible_Power_of_Dijkstra_Maps)
     * [Dijkstra Maps Visualized](http://www.roguebasin.com/index.php/Dijkstra_Maps_Visualized)
+
+## #20 - Path Tweaking ([link](https://youtu.be/D54YMXRrS5I))
+
+* :x: Code to choose a random step if there are multiple options with the same distance
+  * To prevent predictable AI that ends up in an endless stalemate dance with the player
