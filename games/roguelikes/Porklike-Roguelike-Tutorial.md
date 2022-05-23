@@ -270,3 +270,42 @@ The following icons can be used to indicate progress as you work through your co
 
 * :x: Code to choose a random step if there are multiple options with the same distance
   * To prevent predictable AI that ends up in an endless stalemate dance with the player
+
+## #21 - Inventory UI ([link](https://youtu.be/QAP5bPkuIdc))
+
+This chapter does a lot and the description here is a bit rambling. Probably needs a second pass to condense this into requirements rather than step-by-step instructions for the process of coding this feature.
+
+* :x: Code for storing the inventory
+  * In the tutorial we have 6 inventory slots
+* :x: Code for storing the equipment slots
+  * In the tutorial we have 2 equipment slots: weapon, armor
+* :x: Code new game state to display a window and handle inventory input:
+  * Enter this state on a specific button press
+  * Use placeholder text in the slots for initial testing
+  * Show 2 equipment slots at the top
+  * Show a line
+  * Show 6 inventory slots
+  * Press a key to dismiss
+* :x: Code for windows to have an optional cursor mode
+  * Some padding on the left of the window to leave room for the cursor
+  * Index to store which line of the window the cursor is on
+  * Draw the cursor 
+* :x: Code to control the cursor in any window
+  * Called in the inventory state to allow cursor control
+  * Up moves the cursor up
+  * Down move the cursor down
+  * Either restrict the cursor to the visible lines or allow wrap-around
+  * One key for selecting
+  * Another key for closing the window
+* :x: Code to animate the cursor left and right (sin wave is fine)
+  * To help draw attention to the element the player is currently controlling
+* :x: Code to color the inventory text:
+  * Use a brighter color for filled slots
+  * And a dimmer color for empty slots and the separator
+* :x: Code to add a second window during inventory mode to show player stats
+  * For now just placeholders: "ATK:1   DEF:1"
+* :x: Code to create initial placeholder items into free inventory slots:
+  * Items will for now just have a name, e.g. broad sword, leather armor, red potion
+  * If a slot is available, create the item and put it into that slot
+  * If no slot is available the item is lost (no floor items in this game)
+* :x: Code change for inventory display code to use the item and equipment names instead of placeholders
