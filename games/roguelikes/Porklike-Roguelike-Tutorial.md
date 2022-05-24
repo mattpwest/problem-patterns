@@ -309,3 +309,14 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * If a slot is available, create the item and put it into that slot
   * If no slot is available the item is lost (no floor items in this game)
 * :x: Code change for inventory display code to use the item and equipment names instead of placeholders
+
+## #22 - Use Menu ([link](https://youtu.be/Ku_xe6wXdvs))
+
+* :x: Data to define item types (also showed here what you can do with each type):
+  * Weapon: Equip, Throw, Trash
+  * Armor: Equip, Throw, Trash
+  * Food: Eat, Throw, Trash
+  * Throwable: Throw, Trash
+* :x: Code to pop up a sub-menu window when an item is selected in inventory
+  * Ensure the sub-menu lines up with the inventory item
+  * Only show the actions relevant to the selected item type
