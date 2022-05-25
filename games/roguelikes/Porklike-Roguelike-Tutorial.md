@@ -320,3 +320,27 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Code to pop up a sub-menu window when an item is selected in inventory
   * Ensure the sub-menu lines up with the inventory item
   * Only show the actions relevant to the selected item type
+
+## #23 - Equipment ([link](https://youtu.be/15Yw4gzqHX8))
+
+* :x: Code to trash an equipment or inventory item
+  * In this game items don't get dropped on the floor, they are simply destroyed
+* :x: Code to equip an item from inventory
+  * If there was already an item in that equipment slot put it back in the inventory
+* :x: Code tweak to make sure you cannot equip an already equipped item
+* :x: Code to keep the inventory open after certain inventory actions
+  * For example equipping should keep it open
+  * Remember to update the inventory display after changes to equipment
+* :x: Define item data for weapon attack value
+* :x: Define item ata for armour defense value
+* :x: Code to recalculate player attack / defense when equipment changes
+  * `player.atk = 1 + weapon?.atk`
+  * `player.def = 1 + armor?.def`
+* :x: Code to replace placeholder stats display with the real values
+* :x: Code to make the defense stat randomly reduce damage from incoming attacks:
+  * Split stat on items into minimum and maximum defense
+  * Add the same fields on the mob and update stats update code
+  * E.g. leather armor is 0 - 2 points of damage blocked
+  * Enemies will have 0 defense, instead just give them more health
+  * On damaging an entity roll a random number in the range and deduct it from the damage
+    * `dmg=max(0, dmg - (defmin + flr(rng(defmax - defmin + 1))))`
