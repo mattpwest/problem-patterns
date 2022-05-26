@@ -344,3 +344,19 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * Enemies will have 0 defense, instead just give them more health
   * On damaging an entity roll a random number in the range and deduct it from the damage
     * `dmg=max(0, dmg - (defmin + flr(rng(defmax - defmin + 1))))`
+
+## #24 - Eating ([link](https://youtu.be/pLa-GoNzvfI))
+
+* :x: Data for what effect eating a specific item has
+  * One placeholder effect to start: heal
+* :x: Code for eating things
+  * Heal adds 1 HP
+  * But not more than the unit's max HP
+  * Animated floater should show actual HP healed
+  * Destroy the item afterwards
+* :x: Code for a mob to wait (skip turn)
+  * Use this after player eats to make it take a turn
+* :x: Code new game state for targeting the throw of a selected item
+  * Pressing a direction button selects the direction to throw in
+  * Pressing the cancel button goes back to the inventory
+  * Draw a line from the player to 1 tile away in the throw direction
