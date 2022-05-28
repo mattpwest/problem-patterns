@@ -360,3 +360,15 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * Pressing a direction button selects the direction to throw in
   * Pressing the cancel button goes back to the inventory
   * Draw a line from the player to 1 tile away in the throw direction
+
+## #25 - Throw UI - ([link](https://youtu.be/dtiSXv1YD7w))
+
+* :x: Code to detect the closest mob along the throw line (the one that will be hit)
+  * Checking for walkable excluding tiles populated with mobs is the easiest way
+* :x: Code change to draw the throw line to the tile that will be 
+* :x: Code change to draw a dotted throw line instead of a solid line
+* :x: (OPTIONAL) Extra polish on the throw line:
+  * Draw a black dotted line on each side of the line to get an outline to improve contrast
+  * Draw a + with outline at the end of the line to show where the throw ends
+  * Constrain the end of the line to always be on screen (even if throwing outside the screen)
+  * Animate the dotted line (in PICO-8, simply inverting the fill pattern every few frames works well)
