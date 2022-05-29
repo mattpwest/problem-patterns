@@ -372,3 +372,13 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * Draw a + with outline at the end of the line to show where the throw ends
   * Constrain the end of the line to always be on screen (even if throwing outside the screen)
   * Animate the dotted line (in PICO-8, simply inverting the fill pattern every few frames works well)
+
+## #26 - Throwing ([link](https://youtu.be/fWDi8G2In9k))
+
+* :x: Code to play a bump animation of the player in the throw direction when throwing
+* :x: Code to apply the thrown item's effect to the target mob (if any)
+  * Food items will simply be eaten by the target
+  * Thrown weapons will do damage like attacking
+* :x: Code to delete the thrown item from the player's inventory
+* :x: Code to animate the targeted mob flashing during targeting
+* :x: Code to play the mob hit sound when damaging the mob with a thrown item 
