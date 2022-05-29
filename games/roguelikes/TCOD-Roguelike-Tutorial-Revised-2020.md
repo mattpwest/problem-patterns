@@ -49,3 +49,16 @@ Feel free to add your own TODO items as you work through the project.
 * :x: Code a confusion scroll that can be aimed at a specific entity
 * :x: Code a fireball scroll that can be aimed at an enemy or a tile and damages everything in a radius
 * :x: (OPTIONAL) Code random spawning of these new items in the level generation code
+
+## Part 10 - Saving and Loading ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-10/))
+
+* :x: Code a new game state for showing the main menu, with options for:
+  * New game
+  * Continue game
+  * Quit game
+* :x: (OPTIONAL) Background image for the main menu to make it look good
+* :x: Code to save the game
+  * A single save slot is fine for this tutorial
+* :x: Code to load the save game
+* :x: Code to start a new game
+* :x: Code to delete the save game if the player dies
