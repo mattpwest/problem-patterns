@@ -381,4 +381,17 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * Thrown weapons will do damage like attacking
 * :x: Code to delete the thrown item from the player's inventory
 * :x: Code to animate the targeted mob flashing during targeting
-* :x: Code to play the mob hit sound when damaging the mob with a thrown item 
+* :x: Code to play the mob hit sound when damaging the mob with a thrown item
+
+
+## #27 - Gameplay Test ([link](https://youtu.be/yOrDUsF1OpI))
+
+* :x: Code to give the player a random item when they open a chest
+* :x: Code to give the player a random item 30% of the time when they break a pot
+* :x: Code change - some actions should not trigger an AI turn:
+  * Reading a tablet
+  * Bumping a wall
+* :x: Data change: slime mobs from 2 HP to 1 HP
+* :x: Hand-design an interesting level for testing the game design
+  * Spend some time iterating until it is at least a little bit fun
+  * This level will serve as inspiration for the type of level the level generator should generate in future
