@@ -395,3 +395,16 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Hand-design an interesting level for testing the game design
   * Spend some time iterating until it is at least a little bit fun
   * This level will serve as inspiration for the type of level the level generator should generate in future
+
+## #28 - Random Rooms ([link](https://www.youtube.com/watch?v=3sWIQocOoq8))
+
+* :x: Temporarily disable fog of war while working on level generation
+* :x: Read up on the [Rooms and Mazes algorithm](https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) by Bob Nystrom
+* :x: Code to fill the map with walls
+* :x: Code to carve out random rooms:
+  * Minimum width and height of 3 tiles
+  * Maximum width and height of 5 tiles
+  * Width and height may be different
+  * Set initial position to 0,0
+* :x: Code to randomly place the room in the level
+* WIP TBC...
