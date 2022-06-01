@@ -401,10 +401,23 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Temporarily disable fog of war while working on level generation
 * :x: Read up on the [Rooms and Mazes algorithm](https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) by Bob Nystrom
 * :x: Code to fill the map with walls
-* :x: Code to carve out random rooms:
+* :x: Code to generate a random rooms:
   * Minimum width and height of 3 tiles
   * Maximum width and height of 5 tiles
   * Width and height may be different
   * Set initial position to 0,0
 * :x: Code to randomly place the room in the level
-* WIP TBC...
+  * Pick a random coordinate
+  * Dig out the room dimensions by replacing walls with floors
+* :x: Code to randomly add multiple rooms
+  * Add a check to ensure a new room won't overlap any existing room
+  * Try for a target number of rooms
+  * Give up if you have more than a target number of failures to place
+  * The parameters from the tutorial were:
+    * 5 rooms with size 5x5 and up to 5 failures
+    * On each failure maximum room dimensions are reduced (to a minimum of 3x3)
+* :x: Code change to room generation to provide more varied room dimensions:
+  * No room should have more than 35 tiles
+  * Roll width first
+  * Then calculate a new max height to ensure <= 35 tiles
+  * Then roll height
