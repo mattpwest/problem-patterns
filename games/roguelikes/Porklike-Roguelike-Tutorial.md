@@ -421,3 +421,35 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
   * Roll width first
   * Then calculate a new max height to ensure <= 35 tiles
   * Then roll height
+
+## #29 - Tile Signature ([link](https://youtu.be/LV0OhUWMCg8))
+
+* :x: Code to calculate a tile signature that identifies the tiles around a position
+  * Will be used to figure if we can tunnel at a position for now
+  * Also used later to smartly place objects within the level
+  * If you use the exact algorithm provided here you can later use the same signatures in your code
+  * Algorithm:
+  ```javascript
+  // Iterating through neighbor tiles goes:
+  //   left, right, up, down, up-right, down-right, down-left, up-left
+  dirX=[-1,1,0,0,1,1,-1,-1];
+  dirY=[0,0,-1,1,-1,1,1,-1];
+
+  function getSignature(x, y) {
+    var sig = 0;
+    for (var i = 0; i < 8; i++) {
+      var tx = x + dirX[i];
+      var ty = y + dirY[i];
+      var digit = 0;
+      if (!walkable(tx, ty)) {
+        digit = 1;
+      }
+      // To make the pseudo-code clear:
+      //   binaryOr: performs a bitwise OR operation on its two inputs
+      //   bitShiftLeft: shifts the bits in the first argument left by a number of
+      //                 bits specified by the second argument
+      sig = binaryOr(sig, bitShiftLeft(digit, 8 - i - 1));
+    }
+    return sig;
+  }
+  ```
