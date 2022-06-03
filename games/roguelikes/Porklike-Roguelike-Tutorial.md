@@ -453,3 +453,47 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
     return sig;
   }
   ```
+
+## #30 - Signature Mask ([link](https://youtu.be/zX0qNqWeoQk))
+
+* :x: Code the maze worm function that will carve a maze in the remaining space between rooms
+  * Step 1: just highlight viable tiles to see if signature works
+    * Any tile that is a walkable
+    * That is also completely surrounded by wall
+    * I.e. has a signature of 0b11111111
+    * Replace these tiles with a differently colored wall to test this
+  * Step 2: to help figure out the worm make the player the worm
+    * Change maze worm to reset any tiles that no longer match the signature to normal walls
+    * Change the player bumping a wall so that it digs out the bumped wall
+    * You can now see the viable start areas changing as you dig out tiles
+  * Step 3: code a function to check if a tile signature matches a bit mask
+    * Inputs are:
+      * signature: signature to check
+      * match: what signature to match
+      * mask: optional defaults to 0, marks certain bits as insignificant
+    * The code is simple:
+      ```javascript
+        function binaryComp(sig, match, mask = 0) {
+          return binaryOr(sig, mask) == binaryOr(match, mask);
+        }
+      ```
+    * The matches and masks are built from the following values:
+      * 0b1101 x11x:
+        * match: 0b1101 0110
+        * mask : 0b0000 1001
+      * 0b0111 11xx:
+        * match: 0b0111 1100
+        * mask : 0b0000 0011
+      * 0b1011 xx11:
+        * match: 0b1011 0011
+        * mask : 0b0000 1100
+      * 0b1110 1xx1:
+        * match: 0b1110 1001
+        * mask : 0b0000 0110
+  * Step 4: code a new canCarve function to check if an x,y coordinate can be carved
+    * Get the signature of the tile at x,y
+    * Loop through each of the match/mask pairs identified above
+    * If any of them matches return true
+    * If none match return false
+  * Step 5: also highlight carveable tiles as in step 1
+    * Now you can test it out and see this clearly shows where to carve next
