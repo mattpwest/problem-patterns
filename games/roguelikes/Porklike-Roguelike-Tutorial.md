@@ -497,3 +497,78 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
     * If none match return false
   * Step 5: also highlight carveable tiles as in step 1
     * Now you can test it out and see this clearly shows where to carve next
+
+## #31 - Maze Worm ([link](https://youtu.be/OUWNiOxVbYs))
+
+* :x: Code change to canCarve function: target tile must not be walkable
+* :x: Code change to room generation: max rooms from 5 to 4
+  * To allow more room for the maze function to work
+* :x: Code the real maze worm function
+  * Replace the existing code which was temporary to help understand the algorithm
+  * In outline:
+    * Put tiles that can be carved into a list of candidates
+    * Pick a random candidate
+    * Start a worm dig from that tile
+      * Pick a random direction
+      * Repeat until we cannot continue carving tiles:
+        * Carve the current tile
+        * Check if the next tile in the current direction can be carved
+          * If yes, move there and carve
+          * If no, make a list of directions containing tiles that can be carved
+            * Pick a random direction
+
+This episode in the video series felt a bit incoherent compared to previous ones, so here is some javascript pseudo code of the mazeWorm and digWorm functions to try to make sure the requirements are clear. The code is roughly a literal translation of the code in the episode, no effort has been made to refactor it, though I suspect it could perhaps be rewritten a bit more simply:
+```javascript
+// Iterating through neighbor tiles goes:
+//   left, right, up, down, up-right, down-right, down-left, up-left
+dirX=[-1,1,0,0,1,1,-1,-1];
+dirY=[0,0,-1,1,-1,1,1,-1];
+
+function mazeWorm() {
+  const candidates=[];
+  repeat {
+    candidates.clear();
+    for (var x = 0; x <= MAP_WIDTH; x++) {
+      for (var y = 0; y <= MAP_HEIGHT; y++) {
+        if (!isWalkable(x, y) && getSignature(x, y) == 255) {
+          candidates.add({x=x, y=y});
+        }
+      }
+    }
+
+    if (candidates.length > 0) {
+      var c = getRandomFromList(candidates);
+      digWorm(c.x, c.y);
+    }
+  } until candidates.length <= 1;
+}
+
+function digWorm(x, y) {
+  var direction = randomInRangeIncludingStartAndEnd(0, 3);
+  var step = 0;
+
+  repeat {
+    setMapTile(x, y, TILE_FLOOR);
+
+    if (!canCarve(x + dirX[direction], y + dirY[direction]) || (random() < 0.5 && step > 2)) {
+      step = 0;
+      var candidates = [];
+      for (int i = 0; i < 4; i++) {
+        if (canCarve(x + dirX[i], y + dirY[i])) {
+          candidates.add(i);
+        }
+      }
+
+      if (candidates.length == 0) {
+        direction = 8;
+      } else {
+        direction = getRandomFromList(candidates);
+      }
+    }
+
+    x += dirX[direction];
+    y += dirY[direction];
+    step++;
+  } until direction == 8;
+}
+```
