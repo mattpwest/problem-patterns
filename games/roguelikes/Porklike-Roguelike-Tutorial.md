@@ -572,3 +572,61 @@ function digWorm(x, y) {
   } until direction == 8;
 }
 ```
+
+## #32 - Merging Areas ([link](https://youtu.be/TILFOPcS5GM))
+
+* :x: Code a map of flags
+  * Empty map
+  * Same dimensions as the world map
+  * Initialized to 0
+* :x: Code to color the floor tile (a unique color per flag value)
+  * Temporary, needed for testing / debugging
+* :x: Code a placeFlags function
+  * Will run after mazeWorm
+  * Create an empty map of flags initialized to 0
+  * Create a currentFlag initialized to 1
+  * Loop through the entire map area
+  * If a tile is walkable and not flagged yet:
+    * FloodFill from that location with the currentFlag
+    * Increment currentFlag by 1
+* :x: Code a FloodFill function
+  * Takes x, y and currentFlag as arguments
+  * Create a candidates list containing the initial x,y
+  * Create a newCandidates list that is empty
+  * Repeat until no candidates remain
+    * Loop through all current candidates
+      * Flag the current candidate's position
+      * Loop through all tiles adjacent to the current position
+        * If it is walkable and not equal to currentFlag yet add it to newCandidates
+    * Set candidates to newCandidates
+* :x: Code a carveDoors function
+  * Will run after placeFlags function
+  * Repeat until no possible doors are found:
+    * Create an empty list of possible doors
+    * Loop through the entire map
+    * If a tile is not walkable
+      * New variable found = false
+      * New variable flag1 = 0
+      * New variable flag2 = 0
+      * Get its signature
+      * Check if the signature is a valid place to carve with binaryComp:
+        * 1100 xxxx
+          * If yes:
+            * Set found = true
+            * Set x1,y1 and x2,y2 to positions above and below the tile
+        * 0011 xxxx
+          * If yes:
+            * Set found = true
+            * Set x1,y1 and x2,y2 to positions left and right of the tile
+      * Set flag1 to flags at x1,y1
+      * Set flag2 to flags at x2,y2
+      * If found and flag1 != flag2
+        * Add to doors list:
+          * x
+          * y
+          * flag1
+          * flag2
+    * If 1 or more door candidates were found:
+      * Pick a random candidate
+      * Carve that x,y to a floor tile
+      * Run FloodFill to fill from that position with flag1 or flag2
