@@ -589,7 +589,7 @@ function digWorm(x, y) {
   * If a tile is walkable and not flagged yet:
     * FloodFill from that location with the currentFlag
     * Increment currentFlag by 1
-* :x: Code a FloodFill function
+* :x: Code a floodFill function
   * Takes x, y and currentFlag as arguments
   * Create a candidates list containing the initial x,y
   * Create a newCandidates list that is empty
@@ -630,3 +630,45 @@ function digWorm(x, y) {
       * Pick a random candidate
       * Carve that x,y to a floor tile
       * Run FloodFill to fill from that position with flag1 or flag2
+
+## #33 Shortcuts ([link](https://youtu.be/b2GMyOZRXOM))
+
+* :x: Remove code to color the floor tile a unique color per flag value
+* :x: Code a carveShortcuts function
+  * Will run after carveDoors
+  * Similar structure to carveDoors, but instead tries to find door candidates where digging would connect two areas that are many steps apart
+  * Repeat until no possible shortcuts are found or 3 shortcuts have been made
+    * Create an empty list of possible shortcuts
+    * Loop through the entire map
+    * If a tile is not walkable
+      * New variable found = false
+      * Get its signature
+      * Check if the signature is a valid place to carve with binaryComp:
+        * 1100 xxxx
+          * If yes:
+            * Set found = true
+            * Set x1,y1 and x2,y2 to positions above and below the tile
+        * 0011 xxxx
+          * If yes:
+            * Set found = true
+            * Set x1,y1 and x2,y2 to positions left and right of the tile
+      * If found:
+        * Calculate the distance in steps between x1,y1 and x2,y2
+        * If distance > 20:
+          * Add x,y to shortcuts list
+    * If 1 or more door candidates were found:
+      * Pick a random candidate
+      * Carve that x,y to a floor tile
+      * Increment the number of shortcuts made
+* :x: Code a fillEnds function
+  * Will run after carveShortcuts
+  * Fills in any dead-ends create by the worm
+  * Repeat until no candidates are found:
+    * Loop through the entire map
+    * If a tile is walkable and only has 1 exit, add it to candidates
+      * Repurpose canCarve without the is not walkable check to identify having 1 exit
+    * Loop through each candidate
+      * Fill the tile with a wall again
+* :x: Optimize floodFill function code:
+  * Immediately flag candidate tiles
+  * So that other neighbors don't add the tile to candidates again
