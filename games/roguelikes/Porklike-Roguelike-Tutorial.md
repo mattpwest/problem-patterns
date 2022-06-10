@@ -672,3 +672,38 @@ function digWorm(x, y) {
 * :x: Optimize floodFill function code:
   * Immediately flag candidate tiles
   * So that other neighbors don't add the tile to candidates again
+
+## #34 - Stairs ([link](https://youtu.be/cuTet3kI51o))
+
+* :x: Code a startEnd function to generate the player's starting position and the stairs
+  * Runs after fillEnds
+  * Pick a random initial point (any walkable tile)
+  * Place the starting position
+    * Calculate a distance map from the initial point
+    * Find the furthest walkable tile in the distance map that is carveable
+      * This will put the stairs in a little alcove
+    * Place the stairs that return to the previous level there
+    * Spawn the character there
+  * Place the stairs to go to the next level
+    * Calculate a distance map from the starting position
+    * Find the furthest walkable tile in the distance map that is carveable
+      * This will put the stairs in a little alcove
+    * Place the stairs to the next level there
+* :x: Code changes to have more information about rooms
+  * Create a global list of rooms
+  * Create a global room map (like a distance map)
+  * When about to carve a room:
+    * Save the room into the list of rooms
+    * In the carve function, for each tile being carved:
+      * Set the tile being carved to the number of the room list on the room map
+* :x: Code a function to detect possible doors
+  * Code function to check if a tile is a possible door
+  * Call it when carving shortcuts or to connect two areas:
+    * Check adjacent tiles in the rooms map
+    * If the tile is non-zero (i.e. in a room)
+    * Save this to a global list of possible doors
+* :x: Code a installDoors function to put doors in appropriate places
+  * Runs after all previous level generation steps
+  * Loop through the list of doors:
+    * If location is walkable and isDoor is still true
+      * Place a door tile
