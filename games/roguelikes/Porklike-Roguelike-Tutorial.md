@@ -707,3 +707,25 @@ function digWorm(x, y) {
   * Loop through the list of doors:
     * If location is walkable and isDoor is still true
       * Place a door tile
+
+## #35 - Floors ([link](https://youtu.be/YnetPcmmVXw))
+
+* :x: (OPTIONAL) Check if any of the code fixes / optimizations in the video are applicable to your code base
+* :x: Swap these two operations in your level generator:
+  * `fillEnds`
+  * `startEnd`
+  * Tweak `fillEnds` candidate list generation to check that the tile we can carve is not one of the stairs
+* :x: Fix the possibility of entrance and exit stairs spawning next to each other
+  * Instead of finding both in a single loop
+  * Find one, then the other
+* :x: Code a `genFloor` function
+  * Single floor number argument
+  * Sets global floor to the argument
+  * Call map generator afterwards
+  * Replace initial call of `mapGen` with `genFloor(0)`
+* :x: Code to go up the stairs
+  * On the player stepping on the stairs up:
+    * Skip the AI turn
+    * Fade out the screen
+    * Create the new floor with `genFloor(floor + 1)`
+    * Pop up a message showing the floor number for 4 seconds
