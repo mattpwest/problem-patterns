@@ -729,3 +729,30 @@ function digWorm(x, y) {
     * Fade out the screen
     * Create the new floor with `genFloor(floor + 1)`
     * Pop up a message showing the floor number for 4 seconds
+
+## #36 - Shepherding ([link](https://youtu.be/JCVTI0ve9KU))
+
+* :x: Update isDoors function to prevent some bad door placements:
+  * Things to prevent:
+    * Two doors next to each other
+    * A door that leaves a diagonal gap
+      * e.g. has wall above and right, so open spaces are left and down
+    * A door placement deleting the exit stairs
+  * How to do it?
+    * Use the signature function from earlier and require these signatures:
+      * 1100 xxxx
+      * 0011 xxxx
+    * Change the isDoor check to check that the tile is a floor tile instead of that it is walkable
+* :x: Try to reduce the chance of having disconnected rooms
+  * Add a function to check if a tile is next to a room
+    * Using the existing room map created earlier
+  * Add an extra loop to the end of `mazeWorm`:
+    * Loop over all tiles to build a candidate list
+    * Consider candidates that can be carved and that are NOT next to a room
+    * Carve these tiles to floor tiles
+    * Repeat until there are no more candidates left
+  * This should prevent double-walled rooms in the earlier phase of generation before `fillEnds`
+* :x: Improve `startEnd` to prevent scenarios where the start and end are close together
+  * Change the canCarve checks to check for both walkable and not walkable:
+    * `if tmp > high and (canCarve(x, y, false) or canCarve(x, y, true)) {`
+    * `if tmp >= 0 and tmp < low and (canCarve(x, y, false) or canCarve(x, y, true)) {`
