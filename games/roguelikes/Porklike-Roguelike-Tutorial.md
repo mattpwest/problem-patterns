@@ -756,3 +756,44 @@ function digWorm(x, y) {
   * Change the canCarve checks to check for both walkable and not walkable:
     * `if tmp > high and (canCarve(x, y, false) or canCarve(x, y, true)) {`
     * `if tmp >= 0 and tmp < low and (canCarve(x, y, false) or canCarve(x, y, true)) {`
+
+## #37 - Hub Floor ([link](https://youtu.be/mO49X3Jrmy8))
+
+* :x: Design a hub level where the player will start a new game
+  * Add a stone tablet with a message that explains the goal of the game
+* :x: Design a final level where the game will end
+* :x: Code to load a hand-designed map instead of using level generation
+  * The video covers many PICO-8 specific details, it's probably easier in other game engines
+  * Load the hub level for level 0
+  * Load the end level for level 9
+* :x: Draw the final goal
+  * In the tutorial it's the Golden Kielbasa, make it whatever you want
+* :x: Code to display the game start message when interacting with the stone tablet
+* :x: Code to end the game when the player retrieves the final goal
+  * Switch to a new game state similar to the game over screen
+  * Can use the same update loop as dying, just show a "You win" message for now
+  * This can be replaced with a flashy win screen later
+* :x: (OPTIONAL) Replace function to fill level with walls with loading a level full of walls
+  * Mainly just a token optimization for PICO-8
+* :x: Code the `spawnMobs` function
+  * Call this as the next step of level generation
+  * Place all rooms in a list of candidates
+  * Initialize the counter of monsters placed to 0
+  * Repeat:
+    * Pick a random room
+    * Remove the room from the candidates
+    * Increment the count of placed monsters
+    * Call a new `infestRoom` function that places monsters in a room
+    * Until no candidate rooms remain OR we have placed the target number of monsters
+* :x: Code the `infestRoom` function
+  * Pick a random number of monsters to place
+    * For now between 2 and 3
+  * Loop for the number of monsters you want to place:
+    * Initialize targetX and targetY as 0
+    * Repeat:
+      * set targetX to a random position in the room
+      * set targetY to a random position in the room
+      * Until `isWalkable(targetX, targetY)` (excluding other mobs)
+    * Add the mob at targetX, targetY
+* :x: Code fix: clear the monsters list when switching levels
+  * Remember to put the player back in the list if you clear it
