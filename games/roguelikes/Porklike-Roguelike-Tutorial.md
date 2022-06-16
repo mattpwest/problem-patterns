@@ -797,3 +797,13 @@ function digWorm(x, y) {
     * Add the mob at targetX, targetY
 * :x: Code fix: clear the monsters list when switching levels
   * Remember to put the player back in the list if you clear it
+
+## #38 - Optimizations ([link](https://youtu.be/KT72ydigoxk))
+
+* This chapter is mostly fixes and token optimizations for the PICO-8 project
+  * If you are interested in those details, watch the video
+  * I will just list below traps that you are likely to have fallen into anyway or optimizations that are useful in a non-PICO-8 setting
+    * :x: Code fix: mobs are probably only being cleared on level generation not on level switch
+      * If so, move it to level switch, otherwise leftover monsters stick around in the loaded level
+    * :x: The `mazeWorm` function can be optimized to remove the second phase of worms that can start next to tunnels dug by previous worms:
+      * Change the candidate check to: canCarve and not next to room
