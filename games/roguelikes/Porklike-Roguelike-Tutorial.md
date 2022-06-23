@@ -807,3 +807,9 @@ function digWorm(x, y) {
       * If so, move it to level switch, otherwise leftover monsters stick around in the loaded level
     * :x: The `mazeWorm` function can be optimized to remove the second phase of worms that can start next to tunnels dug by previous worms:
       * Change the candidate check to: canCarve and not next to room
+
+## #39 - Tile Borders ([link](https://youtu.be/y4wcaXzhAdM))
+
+* :x: Read this blog post by [Boris The Brave](https://www.boristhebrave.com/2013/07/14/tileset-roundup/)
+  * To understand how to construct a blob tileset that will cover all corner cases for walls
+* :x: For this particular topic watching the video is also a good idea to understand the complexity
