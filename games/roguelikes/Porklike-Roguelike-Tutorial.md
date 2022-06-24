@@ -813,3 +813,21 @@ function digWorm(x, y) {
 * :x: Read this blog post by [Boris The Brave](https://www.boristhebrave.com/2013/07/14/tileset-roundup/)
   * To understand how to construct a blob tileset that will cover all corner cases for walls
 * :x: For this particular topic watching the video is also a good idea to understand the complexity
+
+## #40 - Pretty Walls ([link](https://youtu.be/VHCMLoeZG2s))
+
+* :x: Code a new function `prettyWalls()` that replaces the walls with the new tiles
+  * The author of the video did all the heavy lifting of figuring out tile signatures and masks to check for with `binaryComp(...)`
+  ```javascript
+  wall_sig={251,233,253,84,146,80,16,144,112,208,241,248,210,177,225,120,179,0,124,104,161,64,240,128,224,176,242,244,116,232,178,212,247,214,254,192,48,96,32,160,245,250,243,249,246,252}
+  wall_msk={0,6,0,11,13,11,15,13,3,9,0,0,9,12,6,3,12,15,3,7,14,15,0,15,6,12,0,0,3,6,12,9,0,9,0,15,15,7,15,14,0,0,0,0,0,0}
+  ```
+  * The missing ingredients are:
+    * Your tilemap must follow the same layout as his (check the previous video)
+	* You need the offset into your tilemap for the first tile in the list
+	* Remember to treat all the new tiles as unwalkable walls like the original wall tile
+  * Then the algorithm is simply:
+    * Loop through the map
+	  * Loop through all signatures and masks
+	    * If any signature matches, set the tile to the one corresponding to the coordinate `index + offset_into_tilemap`
+* :x: (OPTIONAL) If you want to use a different tile map layout you will need to create your own arrays to map signatures to your layout
