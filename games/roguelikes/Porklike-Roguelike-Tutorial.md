@@ -831,3 +831,16 @@ function digWorm(x, y) {
 	  * Loop through all signatures and masks
 	    * If any signature matches, set the tile to the one corresponding to the coordinate `index + offset_into_tilemap`
 * :x: (OPTIONAL) If you want to use a different tile map layout you will need to create your own arrays to map signatures to your layout
+
+## #41 - Wall Overlap ([link](https://youtu.be/ZYFdJSMMdN8))
+
+* :x: (OPTIONAL) Tweak the code so that loaded levels have no fog of war, but generated levels do
+  * Only really needed if it makes sense for your game design
+* :x: (OPTIONAL) If you are using PICO-8: copying the function to create data arrays from strings will save you many tokens
+  * You can copy the `explode` and `explodeval` functions from [here](https://github.com/omgmog/lazydevs-pico8-roguelike/commit/2018087fa0ca8b27258f38ee8e6008ddf85e7412)
+* :x: Draw new partial wall floor tiles to put below top walls of rooms
+  * (OPTIONAL) Also draw full wall tile and window wall tile for high rooms
+* :x: Code update to `prettyWalls` function to replace floor tiles below top walls with wall floor tiles
+* :x: Code change to level generation:
+  * Call `prettyWalls` before `installDoors`
+    * This results in prettier doorways
