@@ -844,3 +844,35 @@ function digWorm(x, y) {
 * :x: Code change to level generation:
   * Call `prettyWalls` before `installDoors`
     * This results in prettier doorways
+
+## #42 - Decorations ([link](https://youtu.be/SHCGjkdBx3g))
+
+* :x: Code fix: `installDoors` should also check for the wall floor tiles and install doors on them
+* :x: Draw some additional tiles for decorating the dungeon:
+  * Giant goal items for your final level (a golden kielbasa sausage in the case of Porklike)
+  * Animated torches on left or right wall
+  * Carpeted floor tile and carpeted wall floor tile
+  * Two variants of a fern floor tile
+  * 3-4 variants of a debris floor tile
+* :x: Redesign the final level to incorporate the goal item
+* :x: Code an `animateMap` function
+  * Loop through all map tiles:
+    * If you see a tile that matches one of the torch tiles, flip it to the other frame
+    * Introduce some kind of delayed frame counter to slow down the animation speed
+  * Call this in your main game update function
+* :x: Code a `decorateRooms` function to place decorations in the level:
+  * To be called after monster placement in the level generation
+  * Loop through all rooms:
+    * Randomly select a room decoration function to call to generate a specific type of room (these will be defined below)
+* :x: Code a `decorateCarpet` function:
+  * Loop through all the tiles in the room:
+    * Replace all the floor tiles except the edges at the walls with the carpeted floor tile
+* :x: Code a `decorateDebris` function:
+  * Loop through all the tiles in the room:
+    * If the tiles is a normal floor tile:
+      * Have a random chance to replace the floor tile with a random debris floor tile or a normal floor tile
+* :x: Code a `decorateTorches` function:
+  * Loop through all the tiles in the room:
+    * If the tiles is at the left or right edge of the room:
+	  * If the y coordinate is divisible by 2 and there is no door next to the target tile and on a 66% chance:
+	    * Replace the tile with a left or right torch tile
