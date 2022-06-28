@@ -876,3 +876,53 @@ function digWorm(x, y) {
     * If the tiles is at the left or right edge of the room:
 	  * If the y coordinate is divisible by 2 and there is no door next to the target tile and on a 66% chance:
 	    * Replace the tile with a left or right torch tile
+
+## #43 - Managing Stats ([link](https://youtu.be/rdoanMNlu24))
+
+* :x: Code a `decorateFerns` function:
+  * This room type will impair line of sight
+  * Loop through all the tiles in the room:
+    * Randomly replace the floor with one of:
+      * fern variant 1 (blocks LOS) (3 of 10 chances)
+      * fern variant 2 (blocks LOS) (3 of 10 chances)
+      * grass variant 1 (allows LOS) (1 of 10 chances)
+      * grass variant 2 (allows LOS) (1 of 10 chances)
+      * dirt (allows LOS) (1 of 10 chances)
+      * normal floor (allows LOS) (1 of 10 chances)
+* :x: Code a `decorateVases` function:
+  * This room type will contain a few vases
+  * Loop through all the tiles in the room:
+    * If:
+      * it is a floor tile
+      * and there is no mob there
+      * and it's not next to a door
+      * and the signature is not out in the open (no walls adjacent)
+    * Then:
+      * Replace the tile with a random one from:
+        * normal floor (2 of 4 chances)
+        * vase variant 1 (1 of 4 chances)
+        * vase variant 2 (1 of 4 chances)
+* :x: Create a spreadsheet to manage data for monsters and items
+  * Google sheets is free and works well
+  * You can see the video for the current placeholder items
+  * You will have the following sheets:
+    * Items sheet:
+      * Name
+      * Type (weapon, armor, food, throwable)
+      * Stat 1
+      * Stat 2
+    * Monsters sheet:
+      * Name
+      * Animation
+      * Attack
+      * Hit Points
+      * LOS Distance
+    * Export sheet where formulas for export will go
+  * Add formulas to export the data to strings that you can paste into your game:
+    * This example handles the item names column and writes a line of code to parse CSV to array in PICO-8:
+      * `itm_name="explode(""" & JOIN(",",Items!A2A6)& """)"`
+    * Do this for all data columns
+* :x: Add two new stats for items and monsters:
+  * MinFloor: the minimum dungeon floor where it will spawn
+  * MaxFloor: the maximum floor where it will spawn
+  * For now set min to 1 and max to 8...
