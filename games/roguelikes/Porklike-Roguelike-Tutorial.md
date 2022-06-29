@@ -926,3 +926,39 @@ function digWorm(x, y) {
   * MinFloor: the minimum dungeon floor where it will spawn
   * MaxFloor: the maximum floor where it will spawn
   * For now set min to 1 and max to 8...
+
+## #44 - More Monsters ([link](https://youtu.be/cNJtErJwhZ8))
+
+* :x: Design all the items for the game
+  * These are distributed between level 1 through 8
+  * In the tutorial there are:
+    * 6 weapons
+    * 6 armours
+    * 6 foods
+      * THese are going to be dynamically generated and will need to be identified like potions in other roguelikes
+    * 4 throwables
+* :x: Design all the monsters for the game
+  * These are distributed between level 1 through 8
+  * In the tutorial there are:
+    * The player
+    * 7 monsters
+* :x: (OPTIONAL) Listen to the explanation in the tutorial video about how just increasing numbers on the same type of item is not good game design
+* :x: Copy all this new data from the spreadsheet into the game
+* :x: (OPTIONAL) There are some PICO-8 specific optimizations and code improvements in the video
+* :x: Draw or copy tiles for showing all the monsters from the data
+  * Remember to update the monster data with correct tile numbers / tile data
+* :x: Code change for `spawnMobs` function:
+  * Start by creating a `mobPool` array of all mobs from the mob data that can spawn on the current level
+  * When spawning a mob select a random type to spawn from this `mobPool`
+  * Tweak the number of monsters spawned to change per level and be be between:
+    * Minimum: 3,5,7,9,10,11,12,13
+    * Maximum: 6,10,14,18,20,22,24
+    * Change the loop to go until maximum monsters are reached
+    * If we placed less than the minimum monsters spawn hallway monsters:
+      * Repeat:
+        * Repeat:
+          * Generate a random x
+          * Generate a random y
+          * Until x,y is walkable and doesn't contain a monster
+        * Spawn a monster at x,y
+        * Until minimum monsters are placed
