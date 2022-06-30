@@ -278,7 +278,7 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Code for storing the inventory
   * In the tutorial we have 6 inventory slots
 * :x: Code for storing the equipment slots
-  * In the tutorial we have 2 equipment slots: weapon, armor
+  * In the tutorial we have 2 equipment slots: weapon, armour
 * :x: Code new game state to display a window and handle inventory input:
   * Enter this state on a specific button press
   * Use placeholder text in the slots for initial testing
@@ -305,7 +305,7 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Code to add a second window during inventory mode to show player stats
   * For now just placeholders: "ATK:1   DEF:1"
 * :x: Code to create initial placeholder items into free inventory slots:
-  * Items will for now just have a name, e.g. broad sword, leather armor, red potion
+  * Items will for now just have a name, e.g. broad sword, leather armour, red potion
   * If a slot is available, create the item and put it into that slot
   * If no slot is available the item is lost (no floor items in this game)
 * :x: Code change for inventory display code to use the item and equipment names instead of placeholders
@@ -335,12 +335,12 @@ This chapter does a lot and the description here is a bit rambling. Probably nee
 * :x: Define item ata for armour defense value
 * :x: Code to recalculate player attack / defense when equipment changes
   * `player.atk = 1 + weapon?.atk`
-  * `player.def = 1 + armor?.def`
+  * `player.def = 1 + armour?.def`
 * :x: Code to replace placeholder stats display with the real values
 * :x: Code to make the defense stat randomly reduce damage from incoming attacks:
   * Split stat on items into minimum and maximum defense
   * Add the same fields on the mob and update stats update code
-  * E.g. leather armor is 0 - 2 points of damage blocked
+  * E.g. leather armour is 0 - 2 points of damage blocked
   * Enemies will have 0 defense, instead just give them more health
   * On damaging an entity roll a random number in the range and deduct it from the damage
     * `dmg=max(0, dmg - (defmin + flr(rng(defmax - defmin + 1))))`
@@ -908,7 +908,7 @@ function digWorm(x, y) {
   * You will have the following sheets:
     * Items sheet:
       * Name
-      * Type (weapon, armor, food, throwable)
+      * Type (weapon, armour, food, throwable)
       * Stat 1
       * Stat 2
     * Monsters sheet:
@@ -962,3 +962,55 @@ function digWorm(x, y) {
           * Until x,y is walkable and doesn't contain a monster
         * Spawn a monster at x,y
         * Until minimum monsters are placed
+
+## #45 - Chests ([link](https://youtu.be/--jn8PfA7BY))
+
+* :x: Code a new function `spawnChests`:
+  * Runs after `installDoors` before `spawnMonsters`
+  * Pick a random number of chests to spawn from {0, 1, 1, 1, 2, 3}
+  * Create a list of candidate rooms
+  * For the number of chests:
+    * Pick a random room
+    * Remove it from the list
+    * Pick a random walkable tile in the room that is not at an edge of the room
+    * Place a chest at this position:
+      * The first chest should be the big chest containing rare items like armour or weapons
+      * The subsequent chests should be the small chests containing food or throwables
+* :x: Code a `makeItemPool` function:
+  * Runs once at the start of the game
+  * Create two global arrays:
+    * `rareItems`: contains all weapons and armour
+    * `commonItems`: contains all food and throwables
+* :x: Code a `makeLevelItemPool` function:
+  * Runs each time a level is generated
+  * Create a list of rare items for the level:
+    * Loop through all the rare items
+    * Filter out any items where currentLevel is not between minimum and maximum floor
+  * Do the same for common items for the level
+* :x: Code a `getRareItem` function:
+  * Randomly pick an item from the rare level items array
+  * Delete the item from the rare level items array
+  * Delete the item from the rare global items array
+  * Return the item
+* :x: Code a `getCommonItem` function:
+  * Randomly pick an item from the common items array and return it
+* :x: Code for interacting with a chest:
+  * If inventory is full, show a message to the player saying so...
+    * Also skip the AI turn (so this takes no time)
+  * Otherwise:
+    * Call the correct getItem based on the type of chest
+    * Place it in the player inventory
+    * Show a message to the player displaying the type of item found
+* :x: Code for interacting with vases:
+  * If a 33% chance happens:
+    * If a 20% chance happens:
+      * Spawn a random monster at the vase position
+    * Otherwise:
+      * If inventory is full, show a message to the player saying so...
+        * Also skip the AI turn (so this takes no time)
+      * Otherwise:
+        * Call `getCommonItem`
+        * Place it in the player inventory
+        * Show a message to the player displaying the type of item found
+* :x: Bugfix: increment number of mobs placed by 1 in `spawnMobs` when placing mobs randomly
+  * To prevent an occasional endless loop
