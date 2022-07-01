@@ -1014,3 +1014,48 @@ function digWorm(x, y) {
         * Show a message to the player displaying the type of item found
 * :x: Bugfix: increment number of mobs placed by 1 in `spawnMobs` when placing mobs randomly
   * To prevent an occasional endless loop
+
+## #46 - Random Food ([link](https://youtu.be/so_YhJk34FU))
+
+* :x: Bugfix: when spawning hallway monsters ensure the tile is also a floor tile
+  * To ensure they don't spawn on important locations like the stairs
+* Code tweak to `decorateRooms`:
+  * First decoration function should be vases
+  * Only randomize the next room decoration type to use at the end of the loop
+  * This guarantees at least 1 vase room per level
+* Code tweak to destroying vases:
+  * Destroying a vase should spawn a debris floor tile instead of a regular floor tile
+* Code to randomize food names:
+  * Replace the names for the items "Food 1" through "Food 6"
+  * With randomly generate ones:
+    * Pick a random adjective, e.g. yellow, marinated, cheesy, zesty, etc.
+    * Pick a random food noun, e.g. Jerky, Mett, Calzone, Chops, etc.
+    * Combine them separated with a space
+* Code some of the new item effects in the eat function:
+  * Heal should already be done
+  * Do these now:
+    * Heal a lot:
+      * Heal by 3 instead of 1
+    * Increase maximum hit points:
+      * Increase max HP by 1
+      * Heal by 1
+    * Stun:
+      * Add a stunned flag on mobs that starts out false
+      * Code a `stunMob` function:
+        * Flash the target
+        * Change the stun flag to true
+        * Float a message above the mob saying "stunned"
+      * Update the AI function:
+        * If mob is stunned:
+          * Reset stun flag to false
+        * Else:
+          * Move as normal
+        * On switching back to the player turn:
+          * If player is stunned:
+            * Reset the stun flag to false
+            * Run the AI
+  * Do these next time:  
+    * Curse
+    * Bless
+* Code to tell the player the effect of eating an item:
+  * Pop up a message box describing the effect
