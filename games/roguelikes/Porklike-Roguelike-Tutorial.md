@@ -121,8 +121,6 @@ The following icons can be used to indicate progress as you work through your co
 ## #9 - Monsters ([link](https://youtu.be/rjWxDQcYUwo))
 
 * :books: Lots of theory discussion in this video - hence not many TODO items...
-* :x: (OPTIONAL) If necessary, refactor the code to represent the player reusable to also represent monsters
-  * I.e. if the player is an object, make it possible to represent monsters with the same type of object
 * :x: Draw a slime monster (with 4 frame animation)
 * :x: Code spawning the slime monster on the test map
 * :x: Code to draw and animate all spawned monsters
@@ -132,8 +130,8 @@ The following icons can be used to indicate progress as you work through your co
 * :x: Code a data structure for storing animation frames and switch monster spawning to use it
   * Just storing the first frame may be viable if all animations have the same number of frames
   * If not, store a list of each frame in the animation
-* :x: If still necessary, refactor the code to represent, draw and animate the player so that it can also be used for monsters (or mobs)
-  * Definition of mob is: mobiles. So players and monsters. Hence, mob system.
+* :x: Refactor the code to represent, draw and animate the player so that it can also be used for monsters (or mobs)
+  * The definition of mob is: mobiles... so players and monsters. Hence, mob system.
 * :x: Code a way to get the mob at a certain map position (if any)
 * :x: Code a way to check if a tile is walkable
   * Include a map bounds check here to prevent the player moving outside the map if we're missing some walls
@@ -165,7 +163,7 @@ The following icons can be used to indicate progress as you work through your co
 
 ## #12 - Simple Pathfinding ([link](https://youtu.be/qLIPY0ro5UY))
 
-* :x: (OPTIONAL) Code a way to spawn monsters from map data
+* :x: (OPTIONAL) Code a way to spawn mobs from map data
   * More useful if you want to use some hand-designed content in addition to procedural
 * :x: Code to calculate the distance between two points on the map
   * `dx=tx-x; dy=ty-y; dist=sqrt(dx * dx + dy * dy);`
@@ -778,24 +776,24 @@ function digWorm(x, y) {
 * :x: Code the `spawnMobs` function
   * Call this as the next step of level generation
   * Place all rooms in a list of candidates
-  * Initialize the counter of monsters placed to 0
+  * Initialize the counter of mobs placed to 0
   * Repeat:
     * Pick a random room
     * Remove the room from the candidates
-    * Increment the count of placed monsters
-    * Call a new `infestRoom` function that places monsters in a room
-    * Until no candidate rooms remain OR we have placed the target number of monsters
+    * Increment the count of placed mobs
+    * Call a new `infestRoom` function that places mobs in a room
+    * Until no candidate rooms remain OR we have placed the target number of mobs
 * :x: Code the `infestRoom` function
-  * Pick a random number of monsters to place
+  * Pick a random number of mobs to place
     * For now between 2 and 3
-  * Loop for the number of monsters you want to place:
+  * Loop for the number of mobs you want to place:
     * Initialize targetX and targetY as 0
     * Repeat:
       * set targetX to a random position in the room
       * set targetY to a random position in the room
       * Until `isWalkable(targetX, targetY)` (excluding other mobs)
     * Add the mob at targetX, targetY
-* :x: Code fix: clear the monsters list when switching levels
+* :x: Code fix: clear the mobs list when switching levels
   * Remember to put the player back in the list if you clear it
 
 ## #38 - Optimizations ([link](https://youtu.be/KT72ydigoxk))
@@ -804,7 +802,7 @@ function digWorm(x, y) {
   * If you are interested in those details, watch the video
   * I will just list below traps that you are likely to have fallen into anyway or optimizations that are useful in a non-PICO-8 setting
     * :x: Code fix: mobs are probably only being cleared on level generation not on level switch
-      * If so, move it to level switch, otherwise leftover monsters stick around in the loaded level
+      * If so, move it to level switch, otherwise leftover mobs stick around in the loaded level
     * :x: The `mazeWorm` function can be optimized to remove the second phase of worms that can start next to tunnels dug by previous worms:
       * Change the candidate check to: canCarve and not next to room
 
@@ -861,7 +859,7 @@ function digWorm(x, y) {
     * Introduce some kind of delayed frame counter to slow down the animation speed
   * Call this in your main game update function
 * :x: Code a `decorateRooms` function to place decorations in the level:
-  * To be called after monster placement in the level generation
+  * To be called after mob placement in the level generation
   * Loop through all rooms:
     * Randomly select a room decoration function to call to generate a specific type of room (these will be defined below)
 * :x: Code a `decorateCarpet` function:
@@ -950,23 +948,23 @@ function digWorm(x, y) {
 * :x: Code change for `spawnMobs` function:
   * Start by creating a `mobPool` array of all mobs from the mob data that can spawn on the current level
   * When spawning a mob select a random type to spawn from this `mobPool`
-  * Tweak the number of monsters spawned to change per level and be be between:
+  * Tweak the number of mobs spawned to change per level and be be between:
     * Minimum: 3,5,7,9,10,11,12,13
     * Maximum: 6,10,14,18,20,22,24
-    * Change the loop to go until maximum monsters are reached
-    * If we placed less than the minimum monsters spawn hallway monsters:
+    * Change the loop to go until maximum mobs are reached
+    * If we placed less than the minimum mobs, spawn hallway mobs:
       * Repeat:
         * Repeat:
           * Generate a random x
           * Generate a random y
-          * Until x,y is walkable and doesn't contain a monster
-        * Spawn a monster at x,y
-        * Until minimum monsters are placed
+          * Until x,y is walkable and doesn't contain a mob
+        * Spawn a mob at x,y
+        * Until minimum mobs are placed
 
 ## #45 - Chests ([link](https://youtu.be/--jn8PfA7BY))
 
 * :x: Code a new function `spawnChests`:
-  * Runs after `installDoors` before `spawnMonsters`
+  * Runs after `installDoors` before `spawnMobs`
   * Pick a random number of chests to spawn from {0, 1, 1, 1, 2, 3}
   * Create a list of candidate rooms
   * For the number of chests:
@@ -1004,7 +1002,7 @@ function digWorm(x, y) {
 * :x: Code for interacting with vases:
   * If a 33% chance happens:
     * If a 20% chance happens:
-      * Spawn a random monster at the vase position
+      * Spawn a random mob at the vase position
     * Otherwise:
       * If inventory is full, show a message to the player saying so...
         * Also skip the AI turn (so this takes no time)
@@ -1017,21 +1015,21 @@ function digWorm(x, y) {
 
 ## #46 - Random Food ([link](https://youtu.be/so_YhJk34FU))
 
-* :x: Bugfix: when spawning hallway monsters ensure the tile is also a floor tile
+* :x: Bugfix: when spawning hallway mobs ensure the tile is also a floor tile
   * To ensure they don't spawn on important locations like the stairs
-* Code tweak to `decorateRooms`:
+* :x: Code tweak to `decorateRooms`:
   * First decoration function should be vases
   * Only randomize the next room decoration type to use at the end of the loop
   * This guarantees at least 1 vase room per level
-* Code tweak to destroying vases:
+* :x: Code tweak to destroying vases:
   * Destroying a vase should spawn a debris floor tile instead of a regular floor tile
-* Code to randomize food names:
+* :x: Code to randomize food names:
   * Replace the names for the items "Food 1" through "Food 6"
   * With randomly generate ones:
     * Pick a random adjective, e.g. yellow, marinated, cheesy, zesty, etc.
     * Pick a random food noun, e.g. Jerky, Mett, Calzone, Chops, etc.
     * Combine them separated with a space
-* Code some of the new item effects in the eat function:
+* :x: Code some of the new item effects in the eat function:
   * Heal should already be done
   * Do these now:
     * Heal a lot:
@@ -1057,5 +1055,55 @@ function digWorm(x, y) {
   * Do these next time:  
     * Curse
     * Bless
-* Code to tell the player the effect of eating an item:
+* :x: Code to tell the player the effect of eating an item:
   * Pop up a message box describing the effect
+
+## #47 - Curses ([link](https://youtu.be/so_YhJk34FU))
+
+* :x: Code for mobs with the stun ability to stun the player
+  * Add a charge property to mobs with an initial value of 1
+    * Each mob can only stun the player once to avoid stun lock
+  * On AI attack:
+    * If special ability is stun and charge is positive:
+      * stun the player
+      * reduce the charge
+    * Else attack as normal
+* :x: Code a `blessMob(mob, val)` function to put blesses / curses on mobs:
+  * To be called when eating food with the bless effect
+  * Add a bless property to mobs that starts at 0
+  * On bless:
+    * Set mob bless to `mid(-1, 1, mob.bless+val)`
+      * A mob can be blessed or cursed - not both
+    * Show a text float with the word bless / curse
+    * Flash the target mob
+  * On changing dungeon level: clear the player's blessing (reset back to 0)
+* :x: Code to handle blesses and curses in combat:
+  * If defending mob is cursed and gets hit: multiply damage by 2
+  * If defending mob is blessed and gets hit: divide damage by 2
+  * In both cases reset blessing to 0 (it only works for one hit)
+* :x: Code update for the status window to show blessed / cursed status:
+  * Text defaults to "OK"
+  * If bless>0 switch to "Bless"
+  * If bless<0 switch to "Curse"
+  * Show it before the ATK and DEF values in the stats
+* :x: Code slow mobs:
+  * Add a `lastMoved` flag that starts as false
+  * In mob movement AI:
+    * If mob special is slow and `lastMoved=true`
+      * Set `lastMoved=false`
+      * Return instead of moving
+    * Else:
+      * Move as normal
+      * Set `lastMoved=true`
+  * Reset `lastMoved=false` in some cases:
+    * When the mob loses track of the player and stops being aggressive
+    * When the mob notices the player and starts being aggressive
+* :x: Code for the ghost mob to curse the player when they attack
+  * During attack:
+    * If special is cursed and charge > 0:
+      * Hit the player as normal
+      * Curse the player
+      * Deplete the charge
+  * During `blessMob`:
+    * If target special is curse and val > 0:
+      * Kill the mob instead of blessing it
