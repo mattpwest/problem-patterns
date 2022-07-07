@@ -579,7 +579,7 @@ function digWorm(x, y) {
   * Initialized to 0
 * :x: Code to color the floor tile (a unique color per flag value)
   * Temporary, needed for testing / debugging
-* :x: Code a placeFlags function
+* :x: Code a `placeFlags` function
   * Will run after mazeWorm
   * Create an empty map of flags initialized to 0
   * Create a currentFlag initialized to 1
@@ -587,7 +587,7 @@ function digWorm(x, y) {
   * If a tile is walkable and not flagged yet:
     * FloodFill from that location with the currentFlag
     * Increment currentFlag by 1
-* :x: Code a floodFill function
+* :x: Code a `floodFill` function
   * Takes x, y and currentFlag as arguments
   * Create a candidates list containing the initial x,y
   * Create a newCandidates list that is empty
@@ -1107,3 +1107,24 @@ function digWorm(x, y) {
   * During `blessMob`:
     * If target special is curse and val > 0:
       * Kill the mob instead of blessing it
+
+## #48 - Stats ([link](https://youtu.be/jg9E9DM5270))
+
+* :x: Modify level generation code to handle disconnected levels:
+  * Keep track of the flags used in `placeFlags` and `floodFill`
+  * If more than 1 flag remains after `carveDoors` the level is not fully connected
+  * So loop the first part of level generation up to and including `carveDoors` until there is only 1 flag
+* :x: (OPTIONAL) Improve the main menu screen:
+  * Create a nice logo for your game
+  * Show it for a short time on the first level
+  * Then animate it floating off-screen
+* :x: Code to collect some stats during the play-through:
+  * Floor: maximum floor reached
+  * Steps: number of steps walked
+  * Kills: number of monsters killed
+  * Meals: number of food items eaten
+  * Killer: who / what killed the player
+* :x: Improve the victory and game over screens:
+  * (OPTIONAL) Some fancy extra large logo style text looks good for the "You won" or "You died" messages
+  * Display the stats collected in the previous step
+  * Display a flashing hint to press a key to try again
