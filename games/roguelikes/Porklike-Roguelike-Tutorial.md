@@ -1128,3 +1128,83 @@ function digWorm(x, y) {
   * (OPTIONAL) Some fancy extra large logo style text looks good for the "You won" or "You died" messages
   * Display the stats collected in the previous step
   * Display a flashing hint to press a key to try again
+
+## #49 - Freestanding ([link](https://youtu.be/7OPJ_QXaRUU))
+
+* :x: Copy the sound effects and music from the tutorial file and copy it to your project
+  * If you use the music credit Sebastian Hassler
+* :x: (OPTIONAL) Compose your own music and create your own sound effects that fit your game
+  * Main theme music
+  * You died music
+  * You won music
+  * Bass line of the music to be played at the beginning
+* :x: (OPTIONAL) Create your own sound effects in addition to the ones defined initially:
+  * Status effect applied
+  * Throwing
+  * Confirm Menu
+  * Cancel Menu
+  * Menu Cursor Move
+  * Going up stairs
+* :x: Code for playing the music:
+  * Play the bassline on the start level
+  * When going up the stairs switch to the full main theme looped
+  * When the game ended due to death: play the "You died" music
+  * When the game ended due to winning: play the "You won" music
+* :x: Code the new sound effects:
+  * When triggering stairs: play the "Going up stairs" sound effect
+  * When applying healing or any status effect: play the "Status effect applied"
+  * When throwing an item: "Throwing" sound effect
+  * The various menu items when moving the cursor, selecting or cancelling
+  * Also use the menu sound effects when showing and hiding a text window
+* :x: Code tweak to room generation:
+  * Make the first room generated have max size of 10 x 10 tiles
+  * After that use the 5 x 5 size from before
+* :x: Code a `freestanding` function for checking if a tile is "well connected":
+  * 0b0000 x000:
+    * match: 0b0000 0000 (0)
+    * mask : 0b0000 1000 (8)
+  * 0b0000 0x00:
+    * match: 0b0000 0000 (0)
+    * mask : 0b0000 0100 (4)
+  * 0b0000 00x0:
+    * match: 0b0000 0000 (0)
+    * mask : 0b0000 0010 (2)
+  * 0b0000 000x:
+    * match: 0b0000 0000 (0)
+    * mask : 0b0000 0001 (1)
+  * 0b0001 0xx0:
+    * match: 0b0001 0000 (16)
+    * mask : 0b0000 0110 (6)
+  * 0b0100 xx00:
+    * match: 0b0100 0000 (64)
+    * mask : 0b0000 1100 (12)
+  * 0b0010 0x0x:
+    * match: 0b0010 0000 (32)
+    * mask : 0b0000 0101 (9)
+  * 0b1000 00xx:
+    * match: 0b1000 0000 (128)
+    * mask : 0b0000 0011 (3)
+  * 0b1100 x0x1:
+    * match: 0b1100 0001 (161)
+    * mask : 0b0000 1010 (10)
+  * 0b0110 1x0x:
+    * match: 0b0110 1000 (104)
+    * mask : 0b0000 0101 (5)
+  * 0b0101 x1x0:
+    * match: 0b0101 0100 (84)
+    * mask : 0b0000 1010 (10)
+  * 0b1001 0x1x:
+    * match: 0b1001 0010 (146)
+    * mask : 0b0000 0101 (5)
+* :x: Code a `startScore` function to act as a heuristic for the fitness of potential starting position:
+  * If outside a room:
+    * If next to a room, score is -1
+    * If freestanding > 0, score is 5
+      * Otherwise if can carve, score is 0
+  * Otherwise (inside a room):
+    * If matching one of the first 8 freestanding signatures, score is 3
+      * Otherwise score is 0
+  * Score is -1
+* :x: Code change to the `startEnd` function when spawning the player:
+  * Deduct `startScore` from the previous position score before deciding if is the new lowest score
+  * This may now lead to the player occasionally spawning inside rooms
