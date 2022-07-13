@@ -1208,3 +1208,36 @@ function digWorm(x, y) {
 * :x: Code change to the `startEnd` function when spawning the player:
   * Deduct `startScore` from the previous position score before deciding if is the new lowest score
   * This may now lead to the player occasionally spawning inside rooms
+
+## #50 - Bugfixing ([link](https://youtu.be/PCaW7PoEKRo))
+
+* :x: These are the bugs found in the tutorial implementation. Fix them if you have them or fix any bugs you find in your own code. I did not include PICO-8 token-saving changes here.
+  * :x: Used food names were not being deleted when used
+  * :x: Some of the monsters in the tile set are facing the wrong way
+  * :x: Ignore negative start scores as potential starting locations in level generation
+  * :x: Start score should check next to room diagonally, not just orthogonally
+  * :x: Music loops were shifted in the last cartridge, so update the music play functions
+  * :x: The combination of making the first room larger and making the first room a vase room results in humongous vase rooms and the player getting too many items. Change to picking the rooms to decorate randomly from a list of all rooms until it is empty.
+  * :x: Extend the check if the tile we are spawning on is floor from spawning hallway monsters to the spawns in the regular infest room function.
+  * :x: If players stun themselves while no monster is around they carry it with them until they see a monster and are then suddenly stunned. Remove the stun in the AI function, regardless of if any monsters took a turn.
+  * :x: Tweak blinking of characters to never blink the player character
+    * Otherwise the player is sometimes hidden during death
+  * :x: Try to make the line of sight calculation more symmetrical
+    * Sometimes the player can see a monster without the monster seeing the player
+    * Tweak the line algorithm so the Y coordinate always increases (i.e. in the case you would draw a line from top to bottom swap the coordinates)
+      * This improves it slightly
+      * Switching algorithms may be a better option
+* :x: These are last minute features you could try to add:
+  * :x: Smoothly transition from the bassline on level 0 to the full music track on level 1
+    * Move the bassline to be pattern 0 and to loop endlessly
+    * When you want to transition use code to remove the loop back flag from pattern 0
+    * This will cause the song to continue to pattern 1 smoothly
+  * :x: Sound effects when picking up items:
+    * Regular pickup sound if an item is picked up
+    * Warning pickup sound if:
+      * The player tries to pick up an item but their inventory is full
+      * Breaking a vase spawns an enemy instead of an item
+  * :x: Help the player remember what food they have eaten does:
+    * Show the effect as a hint in the inventory screen if the food has been used before otherwise simply show "???"
+  * :x: Add screen shake when the player is hit
+  * :x: Don't spawn monsters in a room if the player is spawning in that room
