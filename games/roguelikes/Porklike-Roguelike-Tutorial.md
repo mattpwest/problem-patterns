@@ -1241,3 +1241,25 @@ function digWorm(x, y) {
     * Show the effect as a hint in the inventory screen if the food has been used before otherwise simply show "???"
   * :x: Add screen shake when the player is hit
   * :x: Don't spawn monsters in a room if the player is spawning in that room
+
+## #51 - What now? ([link](https://youtu.be/9BMSGNd39Uk))
+
+* This is the end of the tutorial - mostly a discussion about the game's design:
+  * There's too much items, it feels wasteful how much you can throw them away
+  * The stun didn't work well and probably should be for 2 turns
+  * Some of the enemies were boring and didn't add anything new to the game
+  * The "hallway issue": being trapped in a hallway with one of the tougher monsters will almost always get you killed - player needs more solutions to that problem...
+  * Talks about item variety: try to make every item do something unique rather than for example, just increasing damage on weapons
+  * Think of some items that can fix Zugzwang
+  * There are not enough systems in the game and the ones we have can be more interconnected:
+    * Line of sight
+    * AI
+    * Mobs
+    * Armour / Weapons
+    * Food
+    * Map
+    * Status
+  * Ideas for other systems should try to add more variety and more connections between them
+  * Think of ways to provide more map variety
+  * Maybe reconsider the enemy design to match the food theme
+  * Some discussion about the PICO-8 token limit
