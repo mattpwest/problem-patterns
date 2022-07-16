@@ -1270,3 +1270,34 @@ function digWorm(x, y) {
   * Almost exactly a year after the end of the tutorial
   * There are many major changes / new systems
   * You can watch it for some interesting thoughts on how to make a real polished game out of the tutorial, but I wouldn't consider trying to make all the same changes as part of the tutorial
+
+## #53 - Adding a Daily Challenge ([link](https://youtu.be/ezAio6Hl9dI))
+
+* This bonus video was actually chronologically released between #51 and #52, but I decided to keep numbering consistent with the video titles instead and am adding this at #53 instead...
+* Firstly some theory:
+  * What is a daily challenge?
+    * A random level that is the same for everyone in the world for that day.
+    * You only have one try to play this level.
+    * Scores / replays can be compared between players.
+    * Works best for games with random level generation.
+  * You need to understand pseudo random number generators and the concept of a seed giving the same sequence of random outputs.
+* :x: Code your own daily challenge:
+  * :x: Seed the random number generator with the current year + month + day, there are several ways to do this, for all examples I'll use the data year=2022, month=07, day=16:
+    * Simple concatenation:
+      * `string seedStr = year + "" + month + "" + day"; // 20220716`
+      * `int seed = parseInt(seedStr);`
+    * Integer multiplication:
+      * Useful if you have constrained number ranges (like -32K to +32K in PICO-8)
+      * Use a starting year to reduce the initial value
+      * 372 and 31 are estimations of the length of a year and month
+      * `int seed = (year - 2021) * 372 + month * 31 + day; // 605`
+      * This will still eventually overflow after 90 years and render the game unplayable
+    * Float multiplication:
+      * This takes advantage of the larger float number range by storing a component after the decimal
+      * This shouldn't run into issues for a quite a long time...
+      * `float seed = (year - 2021) * 3.72 + month * 3.01 + day * 0.01; // 24.95`
+  * :x: Code a save function that will save whether the daily challenge has already been attempted
+  * :x: Code a load function that loads this state on game start and disables the daily challenge for today if it's already been played
+  * :x: Separate random number generation during each level from the level generation, otherwise the sequence of actions taken in the level will change the next level that gets generated:
+    * Generate the seeds for the levels at the start of the game
+    * Reseed the RNG when going to the next level
