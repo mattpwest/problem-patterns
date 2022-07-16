@@ -1263,3 +1263,10 @@ function digWorm(x, y) {
   * Think of ways to provide more map variety
   * Maybe reconsider the enemy design to match the food theme
   * Some discussion about the PICO-8 token limit
+
+## #52 - Game Launch ([link](https://youtu.be/MQCF6GFz96E))
+
+* This video gives a tour of the final game release
+  * Almost exactly a year after the end of the tutorial
+  * There are many major changes / new systems
+  * You can watch it for some interesting thoughts on how to make a real polished game out of the tutorial, but I wouldn't consider trying to make all the same changes as part of the tutorial
