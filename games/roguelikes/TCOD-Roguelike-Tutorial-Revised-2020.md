@@ -38,8 +38,38 @@ Feel free to add your own TODO items as you work through the project.
 * :x: Make it possible to color entities (or visually distinguish them from each other in some other way)
 * :x: Code a tile-based map
 * :x: Code collision detection to prevent entities moving through impassible tiles
+  * You can temporarily manually put a wall tile next to the player to test 
 
-## TODO: Parts 3 - 8 
+## Part 3 - Generating a dungeon ([link](https://rogueliketutorials.com/tutorials/tcod/v2/part-3/))
+
+* :x: Prepare everything needed to code the random level generation:
+  * :x: Code to fill the map with walls at the start
+  * :x: Code to represent a rectangular room
+    * Have the coordinates for a room include 2 layers of walls, so you can simply put rooms next to each other and still have a wall between them
+  * :x: Code to dig out a room
+  * :x: Code to tunnel between two rooms
+    * 50% to go horizontal then vertical
+    * 50% to go vertical then horizontal
+  * :x: Code to check if two rooms overlap
+* :x: Code to generate a random level:
+  * Define your map parameters, the ones used in the tutorial are:
+    * mapWidth: 45?
+    * mapHeight: 45
+    * roomMaxSize: 10
+    * roomMinSize: 6
+    * maxRooms: 30
+  * Loop for maxRooms:
+    * Generate a random room
+    * If it overlaps with an existing room discard it be continuing the loop
+    * Otherwise:
+      * Add it to the room list
+      * Dig it out
+      * If it's the first room:
+        * Place the player in the center of it
+      * Otherwise:
+        * Dig a tunnel between the new room and the previous room
+
+## TODO: Parts 4 - 8 
 
 ## Part 9 - Ranged Scrolls and Targeting ([link](https://rogueliketutorials.com/tutorials/tcod/v2/part-9/))
 
