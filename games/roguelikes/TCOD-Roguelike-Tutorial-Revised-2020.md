@@ -69,7 +69,45 @@ Feel free to add your own TODO items as you work through the project.
       * Otherwise:
         * Dig a tunnel between the new room and the previous room
 
-## TODO: Parts 4 - 8 
+## Part 4 - Field of View ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-4/))
+
+* :x: Code an exploration mechanic (instead of just showing the entire map)
+  * :x: Store a field of vision (FOV)
+    * This can be 1 overlay map or multiple overlay maps depending on how you want to implement it
+    * It should store the visibility of each tile, which can be in 1 of 3 states:
+      * Not visible
+      * Not visible, but previously seen
+      * Visible
+    * Initialize the entire field of vision to not visible at the start of a level
+  * :x: Update map rendering code to use this FOV information:
+    * Not visible: don't draw any tiles, items or mobs on this tile
+    * Not visible, but previously seen: draw the tile in darker shade than normal
+      * Consider if you want to show items or remembered mob positions as well
+    * Visible: draw the tile as you used to
+  * :x: Code a function to calculate updates to FOV
+    * The tutorial uses Python LibTCOD's `tcod.map.compute_fov` [function](https://python-tcod.readthedocs.io/en/latest/tcod/map.html#tcod.map.compute_fov)
+    * If you are using a different language, libraries or game engine you may need to code your own - some options are:
+      * [Bob Nystrom's Shadow Casting algorithm](https://journal.stuffwithstuff.com/2015/09/07/what-the-hero-sees/)
+      * [One of the many FOV algorithms mentioned on Roguebasin](http://www.roguebasin.com/index.php/Field_of_Vision)
+  * :x: Use the FOV algorithm to update the FOV:
+    * Initially at the start of the level
+    * Each time the player character moves
+
+## Part 5 - Placing Enemies and kicking them (harmlessly) ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-5/))
+
+TODO
+
+## Part 6 - Doing (and taking) some damage ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-6/))
+
+TODO
+
+## Part 7 - Creating the Interface ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-7/))
+
+TODO
+
+## Part 8 - Items and Inventory ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-8/))
+
+TODO
 
 ## Part 9 - Ranged Scrolls and Targeting ([link](https://rogueliketutorials.com/tutorials/tcod/v2/part-9/))
 
