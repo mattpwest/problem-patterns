@@ -95,7 +95,31 @@ Feel free to add your own TODO items as you work through the project.
 
 ## Part 5 - Placing Enemies and kicking them (harmlessly) ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-5/))
 
-TODO
+* :x: Code refactor: move units / entities / mobs to be part of the map so they can be easily stored with the level
+  * Ensure the player can be passed as an initial entity to a map for switching levels later
+* :x: Code a module that defines all the entities that will currently be in the game:
+  * Player: brown @
+  * Orc: green o
+  * Troll: neon green T
+* :x: Code to clone an entity
+  * So the entities defined above can be used as templates for all the other entities
+* :x: Code spawning of enemies as part of dungeon generation
+  * A random number of enemies between 0 to 2 per room should suffice
+  * Enemies can be placed at random open positions within the room
+  * Spawn enemies with the following chances:
+    * 80% chance of an Orc (weaker enemy)
+    * 20% chance of a Troll (stronger enemy)
+* :x: Code to check for collision with enemies when an entity moves
+* :x: Refactor movement code from just a movement action to a bump action which:
+  * Checks if there is an entity in the tile an entity is moving to:
+    * If yes, attack it
+      * For now just print a message saying the player attacked the entity, real combat will be implemented in the next chapter...
+    * If no, move into it
+* :x: Refactor the main loop to handle enemy entity turns:
+  * Keep it simple for now
+  * After the player has moved
+  * Loop through all non-player entities
+    * For now just print out a message saying they acted - AI will be implemented later
 
 ## Part 6 - Doing (and taking) some damage ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-6/))
 
