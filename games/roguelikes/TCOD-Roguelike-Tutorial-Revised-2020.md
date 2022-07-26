@@ -123,7 +123,49 @@ Feel free to add your own TODO items as you work through the project.
 
 ## Part 6 - Doing (and taking) some damage ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-6/))
 
-TODO
+* :x: Code to add combat information to entities:
+  * Hit points
+  * Max hit points
+  * Attack
+  * Defense
+* :x: Update the code defining entities to add combat information for all entities:
+  * Player:
+    * 30 HP
+    * 2 Defense
+    * 5 Power
+  * Orc:
+    * 10 HP
+    * 0 Defense
+    * 3 Power
+  * Troll:
+    * 16 HP
+    * 1 Defense
+    * 4 Power
+* :x: Code a wait action that entities can use to skip their turn:
+  * Add input handling to let the player skip their turn with this
+* :x: Code a simple path-finding function to let the entity find a path to a goal tile
+* :x: Code to control hostile non-player entities with AI:
+  * If the entity is not in the player's vision:
+    * Skip their turn
+  * Otherwise:
+    * If the player is at distance 1, attack them.
+    * Otherwise:
+      * Calculate a path to the player and move one step towards them
+* :x: Code melee combat:
+  * `damage = attacker.power - defender.defense`
+  * `defender.hp = defender.hp - damage`
+  * Print some messages describing what's happening
+* :x: Code entities dying:
+  * Print a message indicating which entity died
+  * Change their display character to a `%` to represent a corpse
+  * Change their color to red
+  * Change them to no longer block movement
+  * Disable their AI (if any)
+  * Update their description to `remains of {entity.name}`
+* :x: Some fixes that will probably be needed at this point:
+  * Ensure the player entity is drawn over all other entities so that it isn't hidden by corpses
+  * The player can continue to move around after dying, instead stop accepting any input except quitting the game
+* :x: Code some basic placeholder UI (maybe a simple print) to show the player's current and maximum hit points to help test all of this
 
 ## Part 7 - Creating the Interface ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-7/))
 
