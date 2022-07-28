@@ -169,7 +169,13 @@ Feel free to add your own TODO items as you work through the project.
 
 ## Part 7 - Creating the Interface ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-7/))
 
-TODO
+* :x: Code a health bar UI (user interface) element to visualize the current player health
+* :x: Code a message log UI element to show all the messages on screen
+  * Instead of printing to the console as you've probably done until now...
+* :x: Code simple mouse look to display the names of monsters when the mouse hovers over them
+* :x: Code a second version of the message log for viewing the full history of messages:
+  * This can be activated with a key of your choice
+  * It should be scrollable with the arrow keys to be able to see all older messages
 
 ## Part 8 - Items and Inventory ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-8/))
 
