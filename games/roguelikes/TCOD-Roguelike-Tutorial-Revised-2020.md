@@ -179,7 +179,50 @@ Feel free to add your own TODO items as you work through the project.
 
 ## Part 8 - Items and Inventory ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-8/))
 
-TODO
+* :x: Code for entities to to heal a specified number of hit points
+* :x: Code for entities to take damage that bypasses armor
+* :x: Code to prevent the player from consuming a resource and losing a turn when that would do nothing useful
+  * There are several useful cases that may be implemented:
+    * Drinking a health potion while on full health
+    * Walking into a wall
+    * Walking out of bounds
+    * Walking into an entity that cannot be attacked
+    * AI attempting to do a nonsensical action should skip their turn and log it for debugging
+* :x: Code to represent items as entities:
+  * Needed attributes are:
+    * Name
+    * Character (if text-based)
+    * Color
+  * Items should be rendered on a different layer: above the floor, but below unit entities
+* :x: Code for consumable items:
+  * Consumable items apply some effect
+  * Then they are destroyed
+* :x: Code for a healing potion:
+  * A consumable item
+  * Which uses the heal function from earlier to heal an entity
+* :x: Code to spawn some health potions on the floor during dungeon generation
+  * Can be very similar to the logic used to place enemies
+  * A random number of potions per room, randomly scattered about the room
+* :x: Code to add an inventory that can hold items to an entity:
+  * For this tutorial probably only the player needs an inventory, but you could add it on all units
+  * Inventory should have functionality to:
+    * Add an item
+    * Drop an item (move from inventory to floor)
+    * List the items in the inventory
+  * A typical size for an inventory in text-based roguelikes is 26 items
+    * This leaves every item addressable by a letter of the alphabet for quick selection
+* :x: Code a grab action:
+  * Press a key like `g` for get or `,` (common mapping from older Angband family roguelikes)
+  * Pick up the item on the tile (if any), placing it into the inventory
+  * If no item is present use the nonsensical action prevention code from earlier to warn the player
+* :x: Code an inventory UI that can be displayed by pressing `i`
+  * Lists all items in the inventory
+  * Try to position the inventory display to not overlap the character
+  * Show a selection cursor on the first item
+  * Arrow up and down keys can be used to move the cursor
+  * On selecting an item prompt the player to select one of the following actions:
+    * Drop the item
+    * Use the item
 
 ## Part 9 - Ranged Scrolls and Targeting ([link](https://rogueliketutorials.com/tutorials/tcod/v2/part-9/))
 
@@ -202,3 +245,15 @@ TODO
 * :x: Code to load the save game
 * :x: Code to start a new game
 * :x: Code to delete the save game if the player dies
+
+## Part 11 - Delving into the Dungeon ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-11))
+
+* TODO
+
+## Part 12 - Increasing difficulty ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-12))
+
+* TODO
+
+## Part 13 - Gearing up ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-13))
+
+* TODO
