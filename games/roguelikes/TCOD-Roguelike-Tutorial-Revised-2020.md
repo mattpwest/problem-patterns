@@ -248,7 +248,35 @@ Feel free to add your own TODO items as you work through the project.
 
 ## Part 11 - Delving into the Dungeon ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-11))
 
-* TODO
+* :x: Add stairs to go down to the next dungeon level
+  * Typically represented with `>` (or a tile)
+  * Modify dungeon generation code to spawn them in the center of the last room
+  * Add a new action triggered by pressing `>` to take the stairs if the player is on them
+  * On taking the stairs:
+    * Increment the level the player is on
+    * Generate a new dungeon floor
+  * Show the current level on the user interface
+* :x: Add the ability for the player character to gain levels of experience
+  * Keep track of the current experience of the character, starting at 0
+  * When the player character kills an enemy increase their experience
+    * In the tutorial the following values are used:
+      * Orc: 35 XP
+      * Troll: 100 XP
+  * When they reach certain thresholds they should level up:
+    * In the tutorial the first level costs 200 XP and every subsequent level costs an additional 150 XP (i.e. 200, 350, 500, 650, etc.)
+    * Show a user interface where the player can choose which of their stats to increase on level up:
+      * +20 Hit Points
+      * +1 Strength (power)
+      * +1 Agility (defense)
+* :x: Add a character information screen
+  * Can be accessed by pressing `c`
+  * Any input while on the screen closes it again
+  * Shows the following information:
+    * Current player level
+    * Current experience
+    * Experience to next level
+    * Attack
+    * Defense
 
 ## Part 12 - Increasing difficulty ([link](http://rogueliketutorials.com/tutorials/tcod/v2/part-12))
 
